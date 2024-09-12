@@ -8,3 +8,4 @@ class MyModel(models.Model):
 
     status = models.IntegerField(choices=STATUS, default=0)
 # Create your models here.
+
