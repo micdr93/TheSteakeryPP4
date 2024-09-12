@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'thesteakery.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("postgres://uodbbpwwawa:G7JawhTCI4eq@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/skate_year_spoil_702838"))
 }
 
 CSRF_TRUSTED_ORIGINS = [
