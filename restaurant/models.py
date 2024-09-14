@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
 from django.utils import timezone
 
       
@@ -16,10 +18,3 @@ class Booking(models.Model):
     def __str__(self):
         return f"{self.name} - {self.date} at {self.time}"
 
-class Post(models.Model):
-    title = models.CharField(max_length=200)
-    content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
