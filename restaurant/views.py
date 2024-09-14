@@ -35,11 +35,6 @@ def menu_view(request):
     menu_items = MenuItem.objects.all()
     return render(request, 'menu.html', {'menu_items': menu_items})
 
-    # views.py
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Booking
-from .forms import BookingForm
-
 # Create a booking
 def create_booking(request):
     if request.method == 'POST':
@@ -53,3 +48,7 @@ def create_booking(request):
         form = BookingForm()
     return render(request, 'booking_form.html', {'form': form})
 
+# List all bookings
+def booking_list(request):
+    bookings = Booking.objects.filter(user=request.user)  # Filter bookings for logged-in user
+    return render(request, 'booking_list.html', {'bookings': bookings})
