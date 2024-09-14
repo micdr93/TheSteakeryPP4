@@ -52,3 +52,15 @@ def create_booking(request):
 def booking_list(request):
     bookings = Booking.objects.filter(user=request.user)  # Filter bookings for logged-in user
     return render(request, 'booking_list.html', {'bookings': bookings})
+
+# Update a booking
+def update_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk, user=request.user)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('booking_list')  # Redirect to list of bookings
+    else:
+        form = BookingForm(instance=booking)
+    return render(request, 'booking_form.html', {'form': form})
