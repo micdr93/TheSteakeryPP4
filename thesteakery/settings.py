@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-micdr93-thesteakerypp4-wyttpzhiyph.ws-eu116.gitpod.io','.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get("HEROKU_HOST_NAME"), '*']
 
 
 # Application definition
@@ -130,14 +130,14 @@ USE_TZ = True
 # Media files
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

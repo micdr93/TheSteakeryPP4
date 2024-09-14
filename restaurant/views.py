@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .models import MenuItem, Booking
+from .models import Booking
 from .forms import BookingForm
 
 # General Restaurant Views
@@ -18,7 +18,9 @@ def my_restaurant(request):
 
 def menu_view(request):
     """Displays all menu items"""
-    menu_items = MenuItem.objects.all()
+    # Menu 
+    # menu_items = MenuItem.objects.all()
+    menu_items = "item"
     return render(request, 'menu.html', {'menu_items': menu_items})
 
 # Authentication Views
