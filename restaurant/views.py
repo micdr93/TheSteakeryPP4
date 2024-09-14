@@ -21,8 +21,7 @@ def your_reservation_view(request):
         email = request.POST.get('email')
         table_id = request.POST.get('table')
 
-        # Handle the reservation logic here
-        # For example, save to the database
+     
 
         # Respond with success
         return JsonResponse({'message': 'Booking successfully made!'})
