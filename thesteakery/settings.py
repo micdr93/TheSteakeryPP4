@@ -90,9 +90,10 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://https://micdr93-thesteakerypp4-856l9m1toau.ws-eu116.gitpod.io/",
-    "https://https://thesteakerypp4-443f2b4046b5.herokuapp.com/"
+    "https://*.herokuapp.com",
+    "https://*.gitpod.io"
 ]
+
 
 
 # Password validation
