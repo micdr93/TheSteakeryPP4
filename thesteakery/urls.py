@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from restaurant import views as restaurant_views  # Import views from the restaurant app
+from restaurant import views as restaurant_views 
+from django.contrib.auth import views as auth_views 
 
 urlpatterns = [
     path('', restaurant_views.home, name='home'),  # Home page
@@ -29,6 +30,12 @@ urlpatterns = [
     path('bookings/create/', restaurant_views.create_booking, name='create_booking'),  # Create booking
     path('bookings/update/<int:pk>/', restaurant_views.update_booking, name='update_booking'),  # Update booking
     path('bookings/delete/<int:pk>/', restaurant_views.delete_booking, name='delete_booking'),  # Delete booking
+
+     # Authentication
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),  # Log-in page
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Log-out functionality
+    path('signup/', restaurant_views.signup, name='signup'),  # Sign-up page (custom view)
+
 
     path('admin/', admin.site.urls),  # Admin site
 ]
