@@ -64,3 +64,12 @@ def update_booking(request, pk):
     else:
         form = BookingForm(instance=booking)
     return render(request, 'booking_form.html', {'form': form})
+
+
+# Delete a booking
+def delete_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk, user=request.user)
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('booking_list')  # Redirect to list of bookings
+    return render(request, 'confirm_delete.html', {'booking': booking})
