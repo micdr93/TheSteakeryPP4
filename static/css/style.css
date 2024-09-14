@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #fb6565;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#booking-form {
+    background-color: #ffe5e5;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#restaurant-logo {
+    max-width: 100%; /* Make sure the logo scales with the form */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between the logo and form title */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#booking-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+#booking-form input, #booking-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%; /* Make the button full-width on smaller screens */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #booking-form {
+        padding: 15px;
+    }
+
+    #restaurant-logo {
+        max-width: 80%; /* Scale down the logo on smaller screens */
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+    }
+
+    button {
+        padding: 10px;
+    }
+}
