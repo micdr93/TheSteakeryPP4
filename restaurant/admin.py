@@ -15,3 +15,9 @@ class BookingAdmin (admin.ModelAdmin):
     'special_requests',  # Any special requests from the customer
     'created_at',  # When the reservation was created
 ]
+
+search_fields = ['name', 'email', 'phone']  # Add search functionality
+list_filter = ['date', 'guests']  # Add filters to make admin management easier
+
+admin.site.register(Booking, BookingAdmin) 
+admin.site.register(MenuItem) 
