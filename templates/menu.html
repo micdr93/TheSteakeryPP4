@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}The Steakery | Menu{% endblock %}
+
+{% block content %}
+<header class="bg-dark text-white text-center py-5">
+    <h1>Our Menu</h1>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">The Steakery</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="menu" class="container my-5">
+    <h2>Starters</h2>
+    <ul class="list-unstyled">
+        <li>Garlic & Herb Focaccia - €6.50</li>
+        <li>Steakhouse Bruschetta - €7.00</li>
+        <li>Crispy Calamari - €9.50</li>
+        <li>Baked Brie & Caramelized Onion Tart - €8.50</li>
+    </ul>
+
+    <h2>Main Courses</h2>
+    <ul class="list-unstyled">
+        <li>The Signature Ribeye - €25.00</li>
+        <li>Filet Mignon - €28.00</li>
+        <li>The Steakery Burger - €15.50</li>
+        <li>Grilled Portobello Mushroom Steak (V) - €14.00</li>
+        <li>Rack of Lamb - €26.00</li>
+    </ul>
+
+    <h2>Bakery Specials</h2>
+    <ul class="list-unstyled">
+        <li>Artisan Bread Basket - €5.00</li>
+        <li>The Steakery Sourdough - €4.50</li>
+        <li>Chocolate Croissant - €3.00</li>
+        <li>Raspberry Almond Tart - €4.50</li>
+        <li>Lemon Drizzle Cake - €4.00</li>
+    </ul>
+
+    <h2>Desserts</h2>
+    <ul class="list-unstyled">
+        <li>Steakery Chocolate Cake - €6.50</li>
+        <li>Baked Alaska - €7.00</li>
+        <li>Apple Crumble - €5.50</li>
+        <li>Cheesecake of the Day - €6.00</li>
+    </ul>
+
+    <h2>Beverages</h2>
+    <ul class="list-unstyled">
+        <li>House-made Lemonade - €3.50</li>
+        <li>Freshly Brewed Coffee & Espresso - €3.00</li>
+        <li>Selection of Fine Wines & Craft Beers - Starting from €5.50</li>
+        <li>Signature Cocktails - €8.50</li>
+    </ul>
+</section>
+
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 The Steakery. All rights reserved.</p>
+    <p><i class="fas fa-map-marker-alt"></i> Grafton Street, Dublin, Ireland | <i class="fas fa-phone"></i> +353 1 234 5678</p>
+</footer>
+{% endblock %}
