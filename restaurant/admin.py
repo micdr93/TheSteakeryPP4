@@ -1,6 +1,17 @@
 from django.contrib import admin
-from .models import Post
+from .models import Restaurant, Booking
 
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at')
+# Register your models here.
+class BookingAdmin (admin.ModelAdmin):
+
+    list_display = [
+    'id',
+    'name',  # Name of the customer making the reservation
+    'email',  # Email of the customer
+    'phone',  # Phone number of the customer
+    'date',  # Reservation date
+    'time',  # Reservation time
+    'guests',  # Number of guests
+    'special_requests',  # Any special requests from the customer
+    'created_at',  # When the reservation was created
+]
