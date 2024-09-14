@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Steakery | Contact Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header class="bg-dark text-white text-center py-5">
+        <h1>Contact The Steakery</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">The Steakery</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="contact" class="container my-5">
+        <h2>Get in Touch</h2>
+        <p>We'd love to hear from you! Whether you have a question, want to make a reservation, or just want to say hello, feel free to reach out to us using the information below.</p>
+
+        <h3>Address</h3>
+        <p>Grafton Street, Dublin, Ireland</p>
+
+        <h3>Phone</h3>
+        <p><i class="fas fa-phone"></i> +353 1 234 5678</p>
+
+        <h3>Email</h3>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info@thesteakery.ie">info@thesteakery.ie</a></p>
+
+        <h3>Opening Hours</h3>
+        <p><i class="fas fa-clock"></i> Monday - Thursday: 12 PM - 10 PM</p>
+        <p><i class="fas fa-clock"></i> Friday - Saturday: 12 PM - 11 PM</p>
+        <p><i class="fas fa-clock"></i> Sunday: 11 AM - 9 PM (Brunch service until 3 PM)</p>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 The Steakery. All rights reserved.</p>
+        <p><i class="fas fa-map-marker-alt"></i> Grafton Street, Dublin, Ireland | <i class="fas fa-phone"></i> +353 1 234 5678</p>
+    </footer>
+
+    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
