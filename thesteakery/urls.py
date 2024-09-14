@@ -23,6 +23,12 @@ urlpatterns = [
     path('', restaurant_views.home, name='home'),  # Home page
     path('restaurant/', restaurant_views.my_restaurant, name='restaurant'),  # Restaurant simple view
     path('menu/', restaurant_views.menu_view, name='menu'),  # Menu view to display menu items
-    path('bookings/', restaurant_views.your_reservation_view, name='bookings'),  # Changed 'reserve' to 'bookings'
+
+    # Bookings: CRUD operations
+    path('bookings/', restaurant_views.booking_list, name='booking_list'),  # Read (list bookings)
+    path('bookings/create/', restaurant_views.create_booking, name='create_booking'),  # Create booking
+    path('bookings/update/<int:pk>/', restaurant_views.update_booking, name='update_booking'),  # Update booking
+    path('bookings/delete/<int:pk>/', restaurant_views.delete_booking, name='delete_booking'),  # Delete booking
+
     path('admin/', admin.site.urls),  # Admin site
 ]
