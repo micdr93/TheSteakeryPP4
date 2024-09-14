@@ -1,0 +1,52 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Steakery | About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header class="bg-dark text-white text-center py-5">
+        <h1>About The Steakery</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">The Steakery</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="container my-5">
+        <h2>Our Story</h2>
+        <p>The Steakery was born out of a passion for quality food and a love for the city of Dublin. Combining the best of both worlds—grilling and baking—we offer a unique dining experience that has quickly become a favorite among locals and visitors alike. Our chefs are dedicated to using only the finest ingredients, sourced locally whenever possible, to create dishes that are both flavorful and satisfying.</p>
+
+        <h2>Our Philosophy</h2>
+        <p>At The Steakery, we believe that great food comes from great ingredients. That’s why we focus on quality at every step, from selecting the best cuts of meat to baking our bread fresh every day. We strive to create a warm and welcoming atmosphere where you can enjoy the finest steaks and bakery delights in Dublin.</p>
+
+   
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 The Steakery. All rights reserved.</p>
+        <p><i class="fas fa-map-marker-alt"></i> Grafton Street, Dublin, Ireland | <i class="fas fa-phone"></i> +353 1 234 5678</p>
+    </footer>
+
+    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
