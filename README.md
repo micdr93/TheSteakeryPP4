@@ -1,5 +1,5 @@
 
-# The Steakery - Django-Based Steakhouse & Bakery Website
+# The Steakery - Bake by Day, Steak by Night: Django-Based Steakhouse & Bakery Website
 
 ## Project Overview 
 
