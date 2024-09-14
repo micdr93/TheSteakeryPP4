@@ -1,5 +1,6 @@
 asgiref==3.8.1
 dj-database-url==2.2.0
 Django==4.2.16
+psycopg==3.2.1
 sqlparse==0.5.1
 whitenoise==6.5.0
