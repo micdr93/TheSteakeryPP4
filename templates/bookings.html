@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 
 {% block title %}
 The Steakery
@@ -6,9 +7,11 @@ The Steakery
 {% block content %}
 <!-- Booking Form -->
 <div id="booking-form">
-    <img src="" alt="Restaurant Logo" id="restaurant-logo">
+    <img src="{% static 'images/restaurant_logo.png' %}" alt="Restaurant Logo" id="restaurant-logo">
     <h2>Book A Table</h2>
-    <form id="reservationForm">
+    <form id="reservationForm" method="post" action="{% url 'your_reservation_view' %}">
+        {% csrf_token %}
+        
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required><br><br>
 
@@ -27,10 +30,13 @@ The Steakery
         <label for="table">Select Table:</label>
         <select id="table" name="table" required>
             <option value="">--Select Table--</option>
+            <!-- Populate tables dynamically if needed -->
         </select><br><br>
 
         <button type="submit">Book Now</button>
     </form>
 </div>
 
+<script src="{% static 'js/reservation.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock %}
