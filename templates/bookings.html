@@ -7,7 +7,7 @@ The Steakery
 {% block content %}
 <!-- Booking Form -->
 <div id="booking-form">
-    <img src="{% static 'images/restaurant_logo.png' %}" alt="Restaurant Logo" id="restaurant-logo">
+    <img src="media/tslogo.webp" class="img-fluid" alt="The Steakery Restaurant">
     <h2>Book A Table</h2>
     <form id="reservationForm" method="post" action="{% url 'your_reservation_view' %}">
         {% csrf_token %}
