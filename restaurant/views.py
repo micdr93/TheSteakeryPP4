@@ -5,8 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .models import MenuItem, Booking
 from .forms import BookingForm
-def my_restaurant(request):
-    return HttpResponse("restaurant")
+
 # General Restaurant Views
 
 def home(request):
