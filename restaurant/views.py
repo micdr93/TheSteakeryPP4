@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.contrib.auth.decorators import login_required  # Import this decorator
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Booking
 from .forms import BookingForm
 
@@ -98,3 +98,34 @@ def delete_booking(request, pk):
         booking.delete()
         return redirect('booking_list')  # Redirect to the list of bookings
     return render(request, 'confirm_delete.html', {'booking': booking})
+
+
+# Check if the user is an admin
+def is_admin(user):
+    return user.is_staff or user.is_superuser
+
+# Admin view for all bookings
+@user_passes_test(is_admin)
+def admin_booking_list(request):
+    bookings = Booking.objects.all()  # Fetch all bookings
+    return render(request, 'admin_bookings.html', {'bookings': bookings})
+
+@user_passes_test(is_admin)
+def admin_update_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_booking_list')  # Redirect to the list of all bookings
+    else:
+        form = BookingForm(instance=booking)
+    return render(request, 'admin_booking_form.html', {'form': form})
+
+@user_passes_test(is_admin)
+def admin_delete_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('admin_booking_list')  # Redirect to the list of all bookings
+    return render(request, 'admin_confirm_delete.html', {'booking': booking})

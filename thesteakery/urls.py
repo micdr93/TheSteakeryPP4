@@ -33,4 +33,8 @@ urlpatterns = [
 
     # Admin site
     path('admin/', admin.site.urls),
+
+    path('admin_bookings/', restaurant_views.admin_booking_list, name='admin_booking_list'),
+    path('admin_bookings/<int:pk>/edit/', restaurant_views.admin_update_booking, name='admin_update_booking'),
+    path('admin_bookings/<int:pk>/delete/', restaurant_views.admin_delete_booking, name='admin_delete_booking'),
 ]
