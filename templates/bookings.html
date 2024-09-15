@@ -1,42 +1,48 @@
 {% extends 'base.html' %}
 
 {% block title %}
-The Steakery
+The Steakery | Home
 {% endblock %}
 
 {% block content %}
-<!-- Booking Form -->
-<div id="booking-form">
-    <img src="media/tslogo.webp" class="img-fluid" alt="The Steakery Restaurant">
-    <h2>Book A Table</h2>
-    <form id="reservationForm" method="post" action="{% url 'your_reservation_view' %}">
-        {% csrf_token %}
-        
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required><br><br>
 
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" required><br><br>
+<header class="bg-dark text-white text-center py-5">
+    <h1>Welcome to The Steakery</h1>
+    <p>Dublin's Premier Steakhouse & Bakery</p>
+</header>
 
-        <label for="guests">Number of Guests:</label>
-        <input type="number" id="guests" name="guests" min="1" max="20" required><br><br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">The Steakery</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'booking_list' %}">Bookings</a></li>
+        </ul>
+    </div>
+</nav>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" pattern="\+353[ ]?[1|8][0-9]{1}[ ]?[0-9]{3}[ ]?[0-9]{4}" placeholder="+353 8X XXX XXXX" required><br><br>
+<section id="hero" class="text-center">
+    <img src="{% static 'media/tslogo.webp' %}" class="img-fluid" alt="The Steakery Restaurant">
+    <div class="hero-text mt-4">
+        <h2>Experience the Art of Grilling and Baking</h2>
+        <p>Where savory meets sweet in the heart of Dublin.</p>
+        <a href="{% url 'menu' %}" class="btn btn-primary mt-2">Explore Our Menu</a>
+    </div>
+</section>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 The Steakery. All rights reserved.</p>
+    <p><i class="fas fa-map-marker-alt"></i> Grafton Street, Dublin, Ireland | <i class="fas fa-phone"></i> +353 1 234 5678</p>
+</footer>
 
-        <label for="table">Select Table:</label>
-        <select id="table" name="table" required>
-            <option value="">--Select Table--</option>
-            <!-- Populate tables dynamically if needed -->
-        </select><br><br>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <button type="submit">Book Now</button>
-    </form>
-</div>
-
-<script src="{% static 'js/reservation.js' %}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock %}

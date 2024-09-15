@@ -1,47 +1,42 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .models import Booking
 from .forms import BookingForm
 
-# General Restaurant Views
-
+# Home view
 def home(request):
-    """Home page view"""
-    return HttpResponse("Welcome to the Steakery!")
+    return render(request, 'home.html')
 
-def my_restaurant(request):
-    """Simple Restaurant page view"""
-    return HttpResponse("restaurant")
 
+# Contact view
+def contact_view(request):
+    return render(request, 'contact.html')
+
+# Index view for the restaurant
+def index(request):
+    return render(request, 'index.html') 
+
+# Menu view
 def menu_view(request):
-    """Displays all menu items"""
-    # Menu 
-    # menu_items = MenuItem.objects.all()
-    menu_items = "item"
+    menu_items = "item"  
     return render(request, 'menu.html', {'menu_items': menu_items})
 
-# Authentication Views
-
+# Sign-up view for new users
 def signup(request):
-    """Sign-up view for new users"""
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)  # Automatically log the user in after sign-up
-            return redirect('home')  # Redirect to the home page
+            return redirect('restaurant')  # Redirect to the index page after signup
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-# Reservation Views
-
-@csrf_exempt
+# Reservation view
 def your_reservation_view(request):
-    """Handles a reservation through a POST request"""
     if request.method == 'POST':
         # Extract data from POST request
         date = request.POST.get('date')
@@ -51,16 +46,18 @@ def your_reservation_view(request):
         email = request.POST.get('email')
         table_id = request.POST.get('table')
 
-        # Additional logic to save the reservation could go here
+        # Validate required fields
+        if not all([date, time, guests, phone, email, table_id]):
+            return JsonResponse({'error': 'Missing required fields.'}, status=400)
 
-        # Respond with success
+
+
         return JsonResponse({'message': 'Booking successfully made!'})
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
-    # Booking CRUD Operations
+# CRUD Views for Booking
 def create_booking(request):
-    """Create a new booking"""
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -72,15 +69,11 @@ def create_booking(request):
         form = BookingForm()
     return render(request, 'booking_form.html', {'form': form})
 
-
 def booking_list(request):
-    """List all bookings for the logged-in user"""
     bookings = Booking.objects.filter(user=request.user)  # Filter bookings for the logged-in user
     return render(request, 'booking_list.html', {'bookings': bookings})
 
-
 def update_booking(request, pk):
-    """Update an existing booking"""
     booking = get_object_or_404(Booking, pk=pk, user=request.user)
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
@@ -91,10 +84,7 @@ def update_booking(request, pk):
         form = BookingForm(instance=booking)
     return render(request, 'booking_form.html', {'form': form})
 
-
-
 def delete_booking(request, pk):
-    """Delete an existing booking"""
     booking = get_object_or_404(Booking, pk=pk, user=request.user)
     if request.method == 'POST':
         booking.delete()

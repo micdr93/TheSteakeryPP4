@@ -16,8 +16,10 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,7 +63,7 @@ ROOT_URLCONF = 'thesteakery.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +77,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'thesteakery.wsgi.application'
+
+LOGIN_REDIRECT_URL = '/restaurant/'  # Redirect to the index page after login
 
 
 # Database
@@ -145,3 +150,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Dummy email credentials (not actually used in the console backend)
+EMAIL_HOST_USER = 'dummy@example.com'
+EMAIL_HOST_PASSWORD = 'dummy-password'

@@ -1,41 +1,32 @@
-"""
-URL configuration for thesteakery project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 from django.contrib import admin
 from django.urls import path
-from restaurant import views as restaurant_views 
-from django.contrib.auth import views as auth_views 
+from restaurant import views as restaurant_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', restaurant_views.home, name='home'),  # Home page
-    path('restaurant/', restaurant_views.my_restaurant, name='restaurant'),  # Restaurant simple view
-    path('menu/', restaurant_views.menu_view, name='menu'),  # Menu view to display menu items
+    # Home page
+    path('', restaurant_views.home, name='home'),
+
+    # Restaurant index page
+    path('restaurant/', restaurant_views.index, name='restaurant'),
+
+    # Contact page
+    path('contact/', restaurant_views.contact_view, name='contact'), 
+
+    # Menu page
+    path('menu/', restaurant_views.menu_view, name='menu'),
 
     # Bookings: CRUD operations
-    path('bookings/', restaurant_views.booking_list, name='booking_list'),  # Read (list bookings)
-    path('bookings/create/', restaurant_views.create_booking, name='create_booking'),  # Create booking
-    path('bookings/update/<int:pk>/', restaurant_views.update_booking, name='update_booking'),  # Update booking
-    path('bookings/delete/<int:pk>/', restaurant_views.delete_booking, name='delete_booking'),  # Delete booking
+    path('bookings/', restaurant_views.booking_list, name='booking_list'),  # List all bookings (Read)
+    path('bookings/create/', restaurant_views.create_booking, name='create_booking'),  # Create a booking
+    path('bookings/update/<int:pk>/', restaurant_views.update_booking, name='update_booking'),  # Update a booking
+    path('bookings/delete/<int:pk>/', restaurant_views.delete_booking, name='delete_booking'),  # Delete a booking
 
-     # Authentication
+    # Authentication views using Django's built-in views for login/logout
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),  # Log-in page
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Log-out functionality
-    path('signup/', restaurant_views.signup, name='signup'),  # Sign-up page (custom view)
+    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),  # Log-out functionality with redirect to home
+    path('signup/', restaurant_views.signup, name='signup'),  # Custom sign-up view
 
-
-    path('admin/', admin.site.urls),  # Admin site
+    # Admin site
+    path('admin/', admin.site.urls),
 ]
