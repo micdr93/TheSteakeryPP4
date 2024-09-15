@@ -77,7 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'thesteakery.wsgi.application'
-
+LOGIN_URL = '/login/' 
 LOGIN_REDIRECT_URL = '/restaurant/'  # Redirect to the index page after login
 
 

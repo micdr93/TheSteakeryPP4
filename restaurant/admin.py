@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
-from .models import Table, Booking, Profile
+from .models import Table, Booking
 
 class BookingAdmin(admin.ModelAdmin):
 

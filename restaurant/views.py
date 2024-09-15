@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required  # Import this decorator
 from .models import Booking
 from .forms import BookingForm
 
@@ -9,8 +10,7 @@ from .forms import BookingForm
 def home(request):
     return render(request, 'home.html')
 
-#About view
-
+# About view
 def about_view(request):
     return render(request, 'about.html')
 
@@ -40,6 +40,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 # Reservation view
+@login_required
 def your_reservation_view(request):
     if request.method == 'POST':
         # Extract data from POST request
@@ -54,19 +55,18 @@ def your_reservation_view(request):
         if not all([date, time, guests, phone, email, table_id]):
             return JsonResponse({'error': 'Missing required fields.'}, status=400)
 
-
-
         return JsonResponse({'message': 'Booking successfully made!'})
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
 # Bookings view
-
+@login_required
 def booking_list(request):
     bookings = Booking.objects.filter(user=request.user)  
     return render(request, 'bookings.html', {'bookings': bookings})
 
 # CRUD Views for Booking
+@login_required
 def create_booking(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
@@ -79,10 +79,7 @@ def create_booking(request):
         form = BookingForm()
     return render(request, 'booking_form.html', {'form': form})
 
-def booking_list(request):
-    bookings = Booking.objects.filter(user=request.user)  # Filter bookings for the logged-in user
-    return render(request, 'booking_list.html', {'bookings': bookings})
-
+@login_required
 def update_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk, user=request.user)
     if request.method == 'POST':
@@ -94,6 +91,7 @@ def update_booking(request, pk):
         form = BookingForm(instance=booking)
     return render(request, 'booking_form.html', {'form': form})
 
+@login_required
 def delete_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk, user=request.user)
     if request.method == 'POST':

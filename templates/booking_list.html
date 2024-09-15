@@ -1,15 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Booking List</title>
+{% extends 'base.html' %}
 
-</head>
-<body>
+{% block title %}
+    Your Bookings
+{% endblock %}
+
+{% block content %}
     <h2>Your Bookings</h2>
-    <table>
-        <thead>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
             <tr>
                 <th>Date</th>
                 <th>Time</th>
@@ -24,8 +23,8 @@
                 <td>{{ booking.time }}</td>
                 <td>{{ booking.num_guests }}</td>
                 <td>
-                    <a href="{% url 'update_booking' booking.pk %}">Edit</a>
-                    <a href="{% url 'delete_booking' booking.pk %}">Delete</a>
+                    <a href="{% url 'update_booking' booking.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete_booking' booking.pk %}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             {% empty %}
@@ -35,5 +34,6 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'create_booking' %}">Create New Booking</a>
 
+    <a href="{% url 'create_booking' %}" class="btn btn-success">Create New Booking</a>
+{% endblock %}
