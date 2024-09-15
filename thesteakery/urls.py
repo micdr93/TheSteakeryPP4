@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from restaurant import views as restaurant_views
 from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
 
 urlpatterns = [
     # Home page
