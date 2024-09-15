@@ -9,6 +9,8 @@
     <br> </br>
     <p>Experience the finest steaks and freshly baked delicacies.</p>
     <br> </br>
+
+
     {% if user.is_authenticated %}
         <p>Welcome back, {{ user.username }}!</p>
         <a href="{% url 'logout' %}" class="btn btn-primary">Log Out</a>
