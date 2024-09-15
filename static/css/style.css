@@ -35,8 +35,6 @@ h1 {
     color: #ef2f2c;
 }
 
-
-
 .menu-sections {
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
