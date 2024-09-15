@@ -3,55 +3,66 @@
 {% block title %}The Steakery | Menu{% endblock %}
 
 {% block content %}
-<header class="bg-dark text-white text-center py-5">
+<header>
     <h1>Our Menu</h1>
 </header>
 
-
 <img src="thesteakerypp4/media/tslogo.webp" class="img-fluid" alt="The Steakery Restaurant">
-<section id="menu" class="container my-5">
-    <h2>Starters</h2>
-    <ul class="list-unstyled">
-        <li>Garlic & Herb Focaccia - €6.50</li>
-        <li>Steakhouse Bruschetta - €7.00</li>
-        <li>Crispy Calamari - €9.50</li>
-        <li>Baked Brie & Caramelized Onion Tart - €8.50</li>
-    </ul>
 
-    <h2>Main Courses</h2>
-    <ul class="list-unstyled">
-        <li>The Signature Ribeye - €25.00</li>
-        <li>Filet Mignon - €28.00</li>
-        <li>The Steakery Burger - €15.50</li>
-        <li>Grilled Portobello Mushroom Steak (V) - €14.00</li>
-        <li>Rack of Lamb - €26.00</li>
-    </ul>
+<section id="menu" class="container">
+    <div class="menu-sections">
+        <div class="menu-category">
+            <h2>Starters</h2>
+            <ul>
+                <li>Garlic & Herb Focaccia - €6.50</li>
+                <li>Steakhouse Bruschetta - €7.00</li>
+                <li>Crispy Calamari - €9.50</li>
+                <li>Baked Brie & Caramelized Onion Tart - €8.50</li>
+            </ul>
+        </div>
 
-    <h2>Bakery Specials</h2>
-    <ul class="list-unstyled">
-        <li>Artisan Bread Basket - €5.00</li>
-        <li>The Steakery Sourdough - €4.50</li>
-        <li>Chocolate Croissant - €3.00</li>
-        <li>Raspberry Almond Tart - €4.50</li>
-        <li>Lemon Drizzle Cake - €4.00</li>
-    </ul>
+        <div class="menu-category">
+            <h2>Main Courses</h2>
+            <ul>
+                <li>The Signature Ribeye - €25.00</li>
+                <li>Filet Mignon - €28.00</li>
+                <li>The Steakery Burger - €15.50</li>
+                <li>Grilled Portobello Mushroom Steak (V) - €14.00</li>
+                <li>Rack of Lamb - €26.00</li>
+            </ul>
+        </div>
 
-    <h2>Desserts</h2>
-    <ul class="list-unstyled">
-        <li>Steakery Chocolate Cake - €6.50</li>
-        <li>Baked Alaska - €7.00</li>
-        <li>Apple Crumble - €5.50</li>
-        <li>Cheesecake of the Day - €6.00</li>
-    </ul>
+        <div class="menu-category">
+            <h2>Bakery Specials</h2>
+            <ul>
+                <li>Artisan Bread Basket - €5.00</li>
+                <li>The Steakery Sourdough - €4.50</li>
+                <li>Chocolate Croissant - €3.00</li>
+                <li>Raspberry Almond Tart - €4.50</li>
+                <li>Lemon Drizzle Cake - €4.00</li>
+            </ul>
+        </div>
 
-    <h2>Beverages</h2>
-    <ul class="list-unstyled">
-        <li>House-made Lemonade - €3.50</li>
-        <li>Freshly Brewed Coffee & Espresso - €3.00</li>
-        <li>Selection of Fine Wines & Craft Beers - Starting from €5.50</li>
-        <li>Signature Cocktails - €8.50</li>
-    </ul>
+        <div class="menu-category">
+            <h2>Desserts</h2>
+            <ul>
+                <li>Steakery Chocolate Cake - €6.50</li>
+                <li>Baked Alaska - €7.00</li>
+                <li>Apple Crumble - €5.50</li>
+                <li>Cheesecake of the Day - €6.00</li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <h2>Beverages</h2>
+            <ul>
+                <li>House-made Lemonade - €3.50</li>
+                <li>Freshly Brewed Coffee & Espresso - €3.00</li>
+                <li>Selection of Fine Wines & Craft Beers - Starting from €5.50</li>
+                <li>Signature Cocktails - €8.50</li>
+            </ul>
+        </div>
+    </div>
 </section>
-
 
 {% endblock %}
