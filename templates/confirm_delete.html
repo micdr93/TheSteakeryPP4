@@ -1,17 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Confirm Delete</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
     <h2>Are you sure you want to delete this booking?</h2>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Delete</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
     </form>
-    <a href="{% url 'booking_list' %}">Cancel</a>
-</body>
-</html>
+    <a href="{% url 'booking_list' %}" class="btn btn-secondary">Cancel</a>
+{% endblock %}
