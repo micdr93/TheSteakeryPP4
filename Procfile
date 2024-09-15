@@ -1,1 +1,1 @@
-web: gunicorn thesteakerypp4.wsgi
+web: gunicorn thesteakery.wsgi
