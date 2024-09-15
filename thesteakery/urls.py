@@ -13,6 +13,9 @@ urlpatterns = [
     # Contact page
     path('contact/', restaurant_views.contact_view, name='contact'), 
 
+    # About page
+    path('about/', restaurant_views.about_view, name='about'),
+
     # Menu page
     path('menu/', restaurant_views.menu_view, name='menu'),
 

@@ -9,6 +9,10 @@ from .forms import BookingForm
 def home(request):
     return render(request, 'home.html')
 
+#About view
+
+def about_view(request):
+    return render(request, 'about.html')
 
 # Contact view
 def contact_view(request):
@@ -16,7 +20,7 @@ def contact_view(request):
 
 # Index view for the restaurant
 def index(request):
-    return render(request, 'index.html') 
+    return render(request, 'index.html')
 
 # Menu view
 def menu_view(request):
@@ -55,6 +59,12 @@ def your_reservation_view(request):
         return JsonResponse({'message': 'Booking successfully made!'})
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+# Bookings view
+
+def booking_list(request):
+    bookings = Booking.objects.filter(user=request.user)  
+    return render(request, 'bookings.html', {'bookings': bookings})
 
 # CRUD Views for Booking
 def create_booking(request):

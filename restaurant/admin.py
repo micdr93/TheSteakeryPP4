@@ -38,6 +38,9 @@ class BookingAdmin (admin.ModelAdmin):
     user_email.short_description = "Email"
     user_phone.short_description = "Phone"
     get_special_requests.short_description = "Special Requests"
+  
+
+admin.site.register(Table)
 
 admin.site.register(Booking, BookingAdmin) 
  
