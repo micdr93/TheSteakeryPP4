@@ -28,9 +28,7 @@ class Booking(models.Model):
     """
     Restaurant Booking
     This class handles the information related to a booking made by a user
-    for a table reservation at The Steakery. It stores details such as the user
-    who made the booking, reservation date and time, the number of guests,
-    and any special requests.
+    for a table reservation at The Steakery.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     table = models.ForeignKey(Table, on_delete=models.SET_NULL, null=True, blank=False)  # Reference to Table
@@ -48,9 +46,32 @@ class Booking(models.Model):
         if self.date < timezone.now().date() or (self.date == timezone.now().date() and self.time < timezone.now().time()):
             raise ValidationError("Reservation date and time must be in the future.")
 
-        # Ensure the number of guests doesn't exceed the table's capacity
         if self.table and self.num_guests > self.table.max_capacity:
             raise ValidationError(f"The table only accommodates {self.table.max_capacity} guests.")
 
     def __str__(self):
         return f"Booking {self.id} - User: {self.user.username}, Date: {self.date}, Time: {self.time}"
+
+
+class Profile(models.Model):
+    """
+    Profile model to extend the default User model with additional fields such as 'phone'.
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=15, blank=True, null=True)
+
+    def __str__(self):
+        return self.user.username
+
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.profile.save()
