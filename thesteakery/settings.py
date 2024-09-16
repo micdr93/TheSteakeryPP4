@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get("HEROKU_HOST_NAME", ''), '*', '.herokuapp.com', '8000-micdr93-thesteakerypp4-gdtgqxzlvde.ws-eu116.gitpod.io/']
+ALLOWED_HOSTS = 'thesteakerypp4-443f2b4046b5.herokuapp.com', '*', '.herokuapp.com', '8000-micdr93-thesteakerypp4-gdtgqxzlvde.ws-eu116.gitpod.io/'
 
 
 # Application definition
