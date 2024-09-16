@@ -10,7 +10,3 @@
 
 ## Table of Contents
 
- [User Experience](#user-experience)
-  - [Project Goals](#project-goals)
-  - [Agile Methodology](#agile-methodology)
-  - [User Stories](#user-stories)
