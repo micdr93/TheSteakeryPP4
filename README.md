@@ -15,6 +15,16 @@
 
 The main goal of *The Steakery* project is to provide a seamless online experience where users can view the restaurant's offerings and book a table effortlessly. The project is aimed at offering an intuitive and visually appealing platform, focusing on user experience.
 
+### Agile Methodology
+
+Agile was used to organise and prioritise tasks, into ToDo, In Progress, Done & Won't have.
+* User stories were created to illustrate what the project must be included, should be included and couldn't be included.
+* The Board is set to public
+* The Board was used to track progress on the project.
+
+![Project Boards](media/readme_images/project_issues.png)
+
+
 ![Steakery Homepage](media/readme_images/home.png)
 ![Steakery About](media/readme_images/about.png)
 ![Steakery Menu](media/readme_images/menu.png)
