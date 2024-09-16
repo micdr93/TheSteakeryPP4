@@ -384,7 +384,8 @@ All critical functions were tested, and issues were addressed during the develop
 
 ### Acknowledgements
 
-* I would like to thank my mentor Dan Hmailton, for the continued support and feedback on the project. 
+* I would like to thank my mentor Dan Hamilton, for the continued support and feedback on the project. 
+* I would also like to express my gratitude to my nephew Daniel for his valuable contributions to the development of The Steakery concept. 
 * I would like to thank Code Institute community and team for their help whenever needed.
 
 ### Note to Assessor
