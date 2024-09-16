@@ -28,6 +28,16 @@ Agile was used to organise and prioritise tasks, into ToDo, In Progress, Done & 
 
 Please see the following link for the [project board](https://github.com/users/micdr93/projects/2)
 
+### Target Audience
+
+* People in Dublin who either want to grab a coffee and baked goods, or enjoy the steakhouse in the evening.
+* Users who want to be able to book, edit, view or delet their reservations.
+* Users who want to be able to add special requests, like wheelchair access, and to also select a table with guest capacity.
+
+### First time user
+* Users are met with a clean and straight forward homepage, with simple navigation.
+* Users can log in or sign up, in order to make bookings.
+* Users can view the menu of what the STeakery has to offer.
 
 ![Steakery Homepage](media/readme_images/home.png)
 ![Steakery About](media/readme_images/about.png)
