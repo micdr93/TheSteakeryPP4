@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restaurant',
-    'whitenoise.runserver_nostatic',  
+    
 ]
 
 MIDDLEWARE = [
