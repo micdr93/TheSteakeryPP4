@@ -20,8 +20,13 @@ Agile was used to organise and prioritise tasks, into ToDo, In Progress, Done & 
 * User stories were created to illustrate what the project must be included, should be included and couldn't be included.
 * The Board is set to public
 * The Board was used to track progress on the project.
+<details>
+<summary> User Stories Template
+</summary>
 
 ![Project Boards](media/readme_images/project_issues.png)
+
+Please see the following link for the [project board](https://github.com/users/micdr93/projects/2)
 
 
 ![Steakery Homepage](media/readme_images/home.png)
