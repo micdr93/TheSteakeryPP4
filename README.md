@@ -15,3 +15,13 @@ The main goal of *The Steakery* project is to provide a seamless online experien
 
 ![Steakery Homepage](media/readme_images/home.png)
 ![Steakery About](media/readme_images/about.png)
+![Steakery Menu](media/readme_images/menu.png)
+![Steakery About](media/readme_images/contact.png)
+![Steakery About](media/readme_images/create_booking.png)
+![Steakery About](media/readme_images/delete_booking.png)
+![Steakery About](media/readme_images/edit_booking.png)
+![Steakery About](media/readme_images/existing_booking.png)
+![Steakery About](media/readme_images/tabel_Selection.png)
+![Steakery About](media/readme_images/booking_login.png)
+![Steakery About](media/readme_images/booking_login_2.png)
+
