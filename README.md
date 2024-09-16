@@ -14,4 +14,4 @@
 The main goal of *The Steakery* project is to provide a seamless online experience where users can view the restaurant's offerings and book a table effortlessly. The project is aimed at offering an intuitive and visually appealing platform, focusing on user experience.
 
 ![Steakery Homepage](media/readme_images/home.png)
-
+![Steakery Abour](media/readme_images/about.png)
