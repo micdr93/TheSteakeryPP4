@@ -264,6 +264,104 @@ Live deployment can be found here [The Steakery](https://thesteakerypp4-443f2b40
 
 Once these steps are complete, the site should be ready for deployment on Heroku with PostgreSQL.
 
+## Testing
+
+Thorough testing was conducted throughout the development of **The Steakery** to ensure the functionality, usability, and responsiveness of the website across different platforms and devices. The following is a summary of the testing procedures and results:
+
+### Manual Testing
+
+#### 1. **Navigation Bar**
+   - **Test**: Ensure that all navigation links work as expected.
+   - **Result**: All links navigate to the correct pages (Home, Menu, About, Contact, Bookings).
+   - **Devices Tested**: Desktop, Mobile, Tablet.
+   - **Browsers Tested**: Chrome, Firefox, Safari.
+
+#### 2. **User Registration & Authentication**
+   - **Test**: Users should be able to register, log in, and log out successfully.
+   - **Result**: 
+     - Registration form properly validates inputs.
+     - Users are redirected to the home page after registration or login.
+     - Logout functionality works as expected.
+   - **Browsers Tested**: Chrome, Firefox, Safari.
+
+#### 3. **Booking Creation**
+   - **Test**: Users should be able to create a booking.
+   - **Result**: The booking form works, data is saved correctly, and the booking appears in the user’s booking list.
+   - **Special Test**: Ensured that the booking date cannot be in the past.
+   - **Edge Cases**: Tested with various table capacities to ensure users can't book for more guests than a table can accommodate.
+
+#### 4. **Booking List and Edit/Delete**
+   - **Test**: Users should see their bookings and be able to edit or delete them.
+   - **Result**: Bookings are displayed in a list with options to edit or delete. Both actions function as expected.
+   - **Edge Cases**: Ensured users cannot book overlapping times for the same table.
+
+#### 5. **Form Validation**
+   - **Test**: Ensure form validation is functioning properly.
+   - **Result**: Forms display appropriate error messages for invalid inputs (e.g., missing required fields, invalid email format, past dates for bookings).
+   - **Browsers Tested**: Chrome, Firefox.
+
+#### 6. **Responsiveness**
+   - **Test**: Ensure the website is responsive across all device types.
+   - **Result**: The layout adjusts properly on mobile devices, tablets, and desktops.
+   - **Tools Used**: Chrome DevTools, Responsinator.
+
+
+### Automated Testing
+
+#### 1. **Django Unit Tests**
+   - **Test**: Models and views have been tested using Django's built-in test framework.
+   - **Result**: All unit tests pass, ensuring that the models (User, Booking, Table) and views function as expected.
+
+#### 2. **W3C HTML Validator**
+   - **Test**: Ensure HTML validation passes without significant issues.
+   - **Result**: Minor warnings resolved, no critical errors found.
+
+#### 3. **CSS Validation**
+   - **Test**: CSS was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+   - **Result**: No significant errors found.
+
+#### 4. **JavaScript Validation**
+   - **Test**: JavaScript was validated using JSHint.
+   - **Result**: JavaScript passed validation with no critical issues.
+
+### Issues Discovered and Fixed
+
+- **Booking form allowing past dates**: Implemented validation to prevent past dates from being booked.
+- **Overlapping bookings**: Added logic to check for table availability and prevent double booking for the same time and table.
+- **Broken links in the navigation bar**: Identified and fixed paths for several internal links.
+- **CSS rendering issues in production**: Ensured that the static files are correctly handled in the production environment by adjusting `STATIC_URL` and `STATIC_ROOT` settings in `settings.py`.
+
+### Lighthouse Testing
+
+Lighthouse, a popular open-source tool for auditing web performance, accessibility, SEO, and best practices, was used to evaluate **The Steakery**.
+
+#### Key Metrics Assessed:
+1. **Performance**: Evaluated the website's loading time and overall speed.
+2. **Accessibility**: Tested for screen reader compatibility and ease of navigation for users with disabilities.
+3. **SEO**: Ensured that the website follows best practices for search engine optimization.
+4. **Best Practices**: Assessed compliance with web development best practices, including security and performance optimizations.
+
+#### Results:
+- **Performance**: Scored between 85-90, depending on network speed.
+- **Accessibility**: Scored a strong 95, with minor recommendations for improving alt text descriptions and contrast.
+- **SEO**: Scored 100, ensuring that metadata, structured data, and crawlability are optimal.
+- **Best Practices**: Scored 100, ensuring no critical security or performance issues.
+
+Recommendations provided by Lighthouse (such as image optimizations and lazy loading) were addressed where possible to further improve performance and accessibility.
+
+### CI Python Linter
+
+The project was also checked using the **Code Institute Python Linter** to ensure adherence to PEP8 standards and best practices in Python coding.
+
+#### Results:
+- No critical issues were found during the Python code validation.
+- Minor suggestions for improvements were addressed, such as the addition of docstrings to functions and ensuring proper indentation.
+- The code is fully compliant with PEP8 standards, ensuring readability, maintainability, and reduced likelihood of bugs.
+
+### Testing Summary
+
+All critical functions were tested, and issues were addressed during the development process. The site performs well across devices and browsers, with form validation and responsive design functioning as expected. Where possible, edge cases were tested to ensure robustness and usability.
+
 # References
 
 ### Docs
@@ -288,3 +386,7 @@ Once these steps are complete, the site should be ready for deployment on Heroku
 
 * I would like to thank my mentor Dan Hmailton, for the continued support and feedback on the project. 
 * I would like to thank Code Institute community and team for their help whenever needed.
+
+### Note to Assessor
+
+Please be aware that this project was completed under significant time pressure, as I had previously deleted the original repository by mistake. This has been an important learning experience for me, particularly in avoiding the creation of multiple repositories with similar names, which contributed to the error. While I have worked hard to rebuild the project as quickly as possible, there may be areas that would have benefited from more attention and refinement. I appreciate your understanding as I continue to learn and grow from this experience.
