@@ -8,6 +8,39 @@
 ![Responsive Mockup](/media/readme_images/responive_mockup.png)
 
 [View The Steakery live website here](https://thesteakerypp4-443f2b4046b5.herokuapp.com/)
+## Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Project Goals](#project-goals)
+3. [Agile Methodology](#agile-methodology)
+4. [User Stories](#user-stories-template)
+5. [Target Audience](#target-audience)
+6. [First Time User](#first-time-user)
+7. [Registered User](#registered-user)
+8. [Admin User](#admin-user)
+9. [Design](#design)
+10. [Logo](#logo)
+11. [Typography](#typography)
+12. [Wireframes](#wireframes)
+13. [Data Models for The Steakery](#data-models-for-the-steakery)
+14. [Database Scheme](#database-scheme)
+15. [Security Features](#security-features)
+16. [Existing Features](#existing-features)
+17. [Admin Features](#admin-features)
+18. [Technologies Used](#technologies-used)
+19. [Deployment and Local Development](#deployment-and-local-deployment)
+    * [Local Deployment](#local-deployment)
+    * [Heroku Deployment](#heroku-deployment)
+    * [PostgreSQL Setup](#setting-up-postgresql-on-heroku)
+20. [Testing](#testing)
+    * [Manual Testing](#manual-testing)
+    * [Automated Testing](#automated-testing)
+    * [Lighthouse Testing](#lighthouse-testing)
+    * [CI Python Linter](#ci-python-linter)
+21. [References](#references)
+22. [Acknowledgements](#acknowledgements)
+23. [Note to Assessor](#note-to-assessor)
+
 
 
 ### Project Goals
