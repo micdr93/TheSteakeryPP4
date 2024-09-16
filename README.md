@@ -63,15 +63,11 @@ Please see the following link for the [project board](https://github.com/users/m
 
 ### Wireframes 
 
-<details>
-<summary> Booking
-</summary>
+- Booking
 
 ![Booking Wireframe](media/wireframes/Booking.png)
 
-<details>
-<summary> Home Page
-</summary>
+- Home Page
 
 ![Home Wireframe](media/wireframes/home.png)
 
@@ -167,6 +163,14 @@ This schema efficiently manages users, tables, and reservations. Users can make 
 * Booking Login 2
 ![Steakery Booking Login 2](media/readme_images/booking_login_2.png)
 
+### Admin Features
+
+* Django's built-in admin panel provides full control over the website's data and content.
+* Admins can access the admin panel through the navigation bar.
+* Admin capabilities include adding, updating, and deleting table reservations and managing restaurant tables.
+* Admins can create and manage special requests (e.g., dietary preferences, accessibility needs) linked to bookings.
+* Admins can also manage user accounts, delete user data, and view or delete bookings.
+
 
 ## Technologies Used
 
@@ -260,4 +264,27 @@ Live deployment can be found here [The Steakery](https://thesteakerypp4-443f2b40
 
 Once these steps are complete, the site should be ready for deployment on Heroku with PostgreSQL.
 
+# References
 
+### Docs
+
+* [Stack Overflow](https://stackoverflow.com/)
+* [Code Institute](https://learn.codeinstitute.net/dashboard)
+* [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+* [Django docs](https://docs.djangoproject.com/en/4.2/releases/3.2/)
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
+* [Django and Static Assets](https://devcenter.heroku.com/articles/django-assets)
+* [Google](https://www.google.com/)
+* [W3 Schools](https://www.w3schools.com/)
+
+
+
+### Code & Content 
+* Code from [Oasis Hotels](https://github.com/Marchopkins96/oasis-hotels/tree/main) was used and modified for this project.
+* Images were created using Adobe Express
+
+
+### Acknowledgements
+
+* I would like to thank my mentor Dan Hmailton, for the continued support and feedback on the project. 
+* I would like to thank Code Institute community and team for their help whenever needed.
