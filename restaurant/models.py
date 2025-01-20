@@ -38,6 +38,8 @@ class Booking(models.Model):
     special_requests = models.ManyToManyField(SpecialRequest, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+
+
     def clean(self):
         """
         Ensure the reservation date and time are in the future and guests

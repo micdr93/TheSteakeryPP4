@@ -26,10 +26,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = ("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = 'thesteakerypp4-443f2b4046b5.herokuapp.com', '*', '.herokuapp.com', '8000-micdr93-thesteakerypp4-gdtgqxzlvde.ws-eu116.gitpod.io'
 
@@ -85,7 +85,7 @@ LOGIN_REDIRECT_URL = '/restaurant/'  # Redirect to the index page after login
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(("postgresql://neondb_owner:ratLIbd3E4ch@ep-rough-shape-a275vn2j.eu-central-1.aws.neon.tech/gains_pony_hug_89667"))
 }
 
 CSRF_TRUSTED_ORIGINS = [
