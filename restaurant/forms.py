@@ -11,11 +11,11 @@ class BookingForm(forms.ModelForm):
     
     class Meta:
         model = Booking
-        fields = ['date', 'time', 'num_guests', 'special_requests', 'table']
-        widgets = {
-            'date': forms.DateInput(attrs={'type': 'date'}),
-            'time': forms.TimeInput(attrs={'type': 'time'}),
-            'num_guests': forms.NumberInput(attrs={'min': 1}),
-            'special_requests': forms.Textarea(attrs={'rows': 3}),
-        }
-        
+fields = ['date', 'start_time', 'end_time', 'num_guests', 'special_requests', 'table']
+widgets = {
+    'date': forms.DateInput(attrs={'type': 'date'}),
+    'start_time': forms.TimeInput(attrs={'type': 'time'}),
+    'end_time': forms.TimeInput(attrs={'type': 'time'}),
+    'num_guests': forms.NumberInput(attrs={'min': 1}),
+    'special_requests': forms.Textarea(attrs={'rows': 3}),
+}
