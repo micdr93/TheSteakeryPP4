@@ -24,9 +24,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 
 # Security settings
 SECRET_KEY = os.getenv("SECRET_KEY", "your-default-secret-key")
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
-
-SECRET_KEY = os.getenv("SECRET_KEY", "your-default-secret-key")
+DEBUG = True  # Set to True for development
 
 ALLOWED_HOSTS = [
     "thesteakerypp4-443f2b4046b5.herokuapp.com",
@@ -78,18 +76,17 @@ TEMPLATES = [
 WSGI_APPLICATION = "thesteakery.wsgi.application"
 LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/restaurant/"
-DATABASE_URL = os.getenv(
-    "DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 DATABASES = {
     "default": dj_database_url.parse(DATABASE_URL)
 }
+
 # Security settings for CSRF
 CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com",
     "https://localhost"
 ]
 
-# Password validation
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -105,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
     },
 ]
+
 # Internationalization settings
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
@@ -116,10 +114,11 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# # Media files (commented out since they're unused)
+# Media files (commented out since they're unused)
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_HOST_USER = "dummy@example.com"
 EMAIL_HOST_PASSWORD = "dummy-password"
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -127,3 +126,21 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_HOST_USER = "dummy@example.com"
 EMAIL_HOST_PASSWORD = "dummy-password"
+
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}

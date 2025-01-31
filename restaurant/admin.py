@@ -2,19 +2,10 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from .models import Table, Booking
 
-class BookingAdmin(admin.ModelAdmin):
 
-    list_display = [
-        'id',
-        'user_name',  # Name of the customer making the reservation
-        'user_email',  # Email of the customer
-        'user_phone',  # Phone number of the customer
-        'date',  # Reservation date
-        'time',  # Reservation time
-        'num_guests',  # Number of guests
-        'get_special_requests',  # Any special requests from the customer
-        'created_at',  # When the reservation was created
-    ]
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'table', 'date', 'start_time', 'end_time', 'num_guests', 'created_at']
+
 
     search_fields = ['user__username', 'user__email', 'user__profile__phone']  # Add search functionality to search by profile phone    
     list_filter = ['date', 'num_guests']  # Add filters to make admin management easier
