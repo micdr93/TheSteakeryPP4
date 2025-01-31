@@ -1,6 +1,5 @@
 from django import forms
 from .models import Booking, Table
-from .widgets import TwoHourIntervalTimeWidget
 
 class BookingForm(forms.ModelForm):
     table = forms.ModelChoiceField(
@@ -18,7 +17,7 @@ class BookingForm(forms.ModelForm):
         ]
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
-            'start_time': TwoHourIntervalTimeWidget(),
+            'start_time': forms.TimeInput(attrs={'type': 'time'}),
             'num_guests': forms.NumberInput(attrs={'min': 1}),
             'special_requests': forms.Textarea(attrs={'rows': 3}),
         }

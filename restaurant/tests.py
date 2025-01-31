@@ -1,3 +1,4 @@
 from django.test import TestCase
+from .models import Booking, Table, SpecialRequest
 
-# Create your tests here.
+# Add your tests here.

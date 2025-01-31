@@ -4,10 +4,8 @@ from .models import Table, Booking
 
 
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'table', 'date', 'start_time', 'end_time', 'num_guests', 'created_at']
-
-
-    search_fields = ['user__username', 'user__email', 'user__profile__phone']  # Add search functionality to search by profile phone    
+    list_display = ['user', 'table', 'date', 'start_time', 'end_time', 'num_guests']
+    search_fields = ['user__username', 'table__table_number', 'date']
     list_filter = ['date', 'num_guests']  # Add filters to make admin management easier
 
     def user_name(self, obj):
