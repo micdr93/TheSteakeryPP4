@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import time, timedelta, datetime
 from django.utils import timezone
 from django.core.exceptions import ValidationError
-from datetime import timedelta, time, datetime
 
 class SpecialRequest(models.Model):
     name = models.CharField(max_length=100)
@@ -23,7 +23,7 @@ class Booking(models.Model):
     MAX_DINING_DURATION = timedelta(hours=2)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    table = models.ForeignKey(Table, on_delete=models.SET_NULL, null=True, blank=False)
+    table = models.ForeignKey(Table, on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField(editable=False)
