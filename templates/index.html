@@ -4,9 +4,9 @@
 The Steakery
 {% endblock %}
 
-{% block content %}
-
 <body>
+
+{% block content %}
     <header>
         <h1>Welcome to The Steakery</h1>
         <p>Dublin's Premier Steakhouse & Bakery</p>
@@ -15,7 +15,9 @@ The Steakery
 
 
     <section id="hero" class="text-center">
-        <img src="media/tslogo.webp" class="img-fluid" alt="The Steakery Restaurant">
+        <div class="d-flex justify-content-center">
+            <img src="{% static 'images/the_steakery_home.png' %}" class="img-fluid" alt="The Steakery Restaurant">
+        </div>
         <div class="hero-text mt-4">
             <h2>Experience the Art of Grilling and Baking</h2>
             <h3>Bake by Day, Steak by Night</h3>
@@ -32,7 +34,7 @@ The Steakery
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
 {% endblock %}
+
+</body>
+</html>
