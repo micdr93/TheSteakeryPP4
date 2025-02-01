@@ -2,23 +2,23 @@ from pathlib import Path
 import os
 import dj_database_url
 
+# Load environment variables from env.py if it exists
 if os.path.isfile("env.py"):
-    import env  # Import env.py if it exists
+    import env
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'your-secret-key'
+SECRET_KEY = os.getenv("SECRET_KEY", "your-default-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "True") == "True"  # Default to True if not set
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    "thesteakerypp4-443f2b4046b5.herokuapp.com",
-    ".herokuapp.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "thesteakerypp4-443f2b4046b5.herokuapp.com,.herokuapp.com,localhost,127.0.0.1").split(",")
 
 # Application definition
 INSTALLED_APPS = [
@@ -104,9 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
     },
 ]
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_HOST_USER = "dummy@example.com"
-EMAIL_HOST_PASSWORD = "dummy-password"
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "default-dummy-password")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -114,6 +115,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Logging configuration
 LOGGING = {

@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Booking, Table, MenuItem  # Assuming MenuItem exists
+from .models import Booking, Table, MenuItem  # Ensure MenuItem is imported
 from .forms import BookingForm
 
 # Home view
@@ -24,7 +24,7 @@ def index(request):
 
 # Menu view
 def menu_view(request):
-    menu_items = MenuItem.objects.all()  # Fetch menu items from the database
+    menu_items = MenuItem.objects.all()
     return render(request, 'menu.html', {'menu_items': menu_items})
 
 # Sign-up view for new users

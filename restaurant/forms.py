@@ -1,5 +1,5 @@
 from django import forms
-from .models import Booking, Table
+from .models import Booking, Table, SpecialRequest
 
 class BookingForm(forms.ModelForm):
     table = forms.ModelChoiceField(
@@ -7,6 +7,12 @@ class BookingForm(forms.ModelForm):
         label="Table Selection",
         widget=forms.Select(attrs={'class': 'form-control'}),
         help_text="Select an available table"
+    )
+    special_requests = forms.ModelMultipleChoiceField(
+        queryset=SpecialRequest.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label="Special Requests"
     )
     
     class Meta:
@@ -19,5 +25,4 @@ class BookingForm(forms.ModelForm):
             'date': forms.DateInput(attrs={'type': 'date'}),
             'start_time': forms.TimeInput(attrs={'type': 'time'}),
             'num_guests': forms.NumberInput(attrs={'min': 1}),
-            'special_requests': forms.Textarea(attrs={'rows': 3}),
         }

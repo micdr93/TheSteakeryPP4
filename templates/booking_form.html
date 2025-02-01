@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Create or Update Booking{% endblock %}
+{% block title %}
+    Booking Form
+{% endblock %}
 
 {% block content %}
-
-    <h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Booking</h2>
-    
+    <h2>Booking Form</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">
-            {% if form.instance.pk %}Update{% else %}Create{% endif %}
-        </button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
-    <a href="{% url 'booking_list' %}" class="btn btn-secondary mt-3">Back to Bookings</a>
 {% endblock %}

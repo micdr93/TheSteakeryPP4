@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from restaurant import views as restaurant_views
 
@@ -12,7 +14,6 @@ urlpatterns = [
 
     # Contact page
     path('contact/', restaurant_views.contact_view, name='contact'), 
-    path('contact/', restaurant_views.contact_view, name='contact'),
     # About page
     path('about/', restaurant_views.about_view, name='about'),
 
@@ -20,7 +21,6 @@ urlpatterns = [
     path('menu/', restaurant_views.menu_view, name='menu'),
 
     # Bookings: CRUD operations
-    path('bookings/', restaurant_views.booking_list, name='booking_list'),
     path('bookings/', restaurant_views.booking_list, name='booking_list'),
     path('bookings/create/', restaurant_views.create_booking, 
          name='create_booking'),  # Create a booking
@@ -39,8 +39,7 @@ urlpatterns = [
     path(
         'login/', 
         auth_views.LoginView.as_view(template_name='registration/login.html'), 
-    path('signup/', restaurant_views.signup, 
-         name='signup'),  # Custom sign-up view
+        name='login'
     ),
     path('signup/', restaurant_views.signup, name='signup'),  # Custom sign-up view
 
@@ -62,8 +61,8 @@ urlpatterns = [
         'admin_bookings/<int:pk>/delete/',
         restaurant_views.admin_delete_booking,
         name='admin_delete_booking'
-    )
-
-    if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+    ),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

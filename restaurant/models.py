@@ -17,9 +17,20 @@ class Table(models.Model):
     def __str__(self):
         return f"Table {self.table_number} - Max Capacity: {self.max_capacity}"
 
+class MenuItem(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+
 class Booking(models.Model):
-    OPENING_TIME = time(12, 0)  # 12:00 PM
-    CLOSING_TIME = time(23, 0)  # 11:00 PM
+    WEEKDAY_OPENING_TIME = time(12, 0)  # 12:00 PM
+    WEEKDAY_CLOSING_TIME = time(22, 0)  # 10:00 PM
+    FRIDAY_SATURDAY_CLOSING_TIME = time(23, 0)  # 11:00 PM
+    SUNDAY_OPENING_TIME = time(11, 0)  # 11:00 AM
+    SUNDAY_CLOSING_TIME = time(21, 0)  # 9:00 PM
     MAX_DINING_DURATION = timedelta(hours=2)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -39,12 +50,23 @@ class Booking(models.Model):
         if self.table and self.num_guests > self.table.max_capacity:
             raise ValidationError(f"The table only accommodates {self.table.max_capacity} guests.")
 
-        if self.start_time < self.OPENING_TIME or self.start_time >= self.CLOSING_TIME:
-            raise ValidationError(f"Reservations must be between {self.OPENING_TIME.strftime('%I:%M %p')} and {self.CLOSING_TIME.strftime('%I:%M %p')}.")
+        day_of_week = self.date.weekday()
+        if day_of_week < 4:  # Monday to Thursday
+            opening_time = self.WEEKDAY_OPENING_TIME
+            closing_time = self.WEEKDAY_CLOSING_TIME
+        elif day_of_week < 6:  # Friday and Saturday
+            opening_time = self.WEEKDAY_OPENING_TIME
+            closing_time = self.FRIDAY_SATURDAY_CLOSING_TIME
+        else:  # Sunday
+            opening_time = self.SUNDAY_OPENING_TIME
+            closing_time = self.SUNDAY_CLOSING_TIME
+
+        if self.start_time < opening_time or self.start_time >= closing_time:
+            raise ValidationError(f"Reservations must be between {opening_time.strftime('%I:%M %p')} and {closing_time.strftime('%I:%M %p')} on {self.date.strftime('%A')}.")
 
         self.end_time = (datetime.combine(self.date, self.start_time) + self.MAX_DINING_DURATION).time()
 
-        if self.end_time > self.CLOSING_TIME:
+        if self.end_time > closing_time:
             raise ValidationError("The booking exceeds the restaurant's closing time.")
 
         overlapping_bookings = Booking.objects.filter(
