@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block content %}
+<br> </br>
+
     <h2>Booking Form</h2>
+
+<br> </br>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

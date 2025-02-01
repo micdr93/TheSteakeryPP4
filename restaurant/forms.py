@@ -6,7 +6,7 @@ class BookingForm(forms.ModelForm):
         queryset=Table.objects.all(),
         label="Table Selection",
         widget=forms.Select(attrs={'class': 'form-control'}),
-        help_text="Select an available table"
+        help_text="Select an available table",
     )
     special_requests = forms.ModelMultipleChoiceField(
         queryset=SpecialRequest.objects.all(),
