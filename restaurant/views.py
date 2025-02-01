@@ -3,44 +3,31 @@ from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Booking, Table
+from .models import Booking, Table, MenuItem  # Assuming MenuItem exists
 from .forms import BookingForm
 
 # Home view
-
-
 def home(request):
-
     return render(request, 'home.html')
 
 # About view
-
-
 def about_view(request):
     return render(request, 'about.html')
 
 # Contact view
-
-
 def contact_view(request):
     return render(request, 'contact.html')
 
 # Index view for the restaurant
-
-
 def index(request):
     return render(request, 'index.html')
 
 # Menu view
-
-
 def menu_view(request):
-    menu_items = "item"
+    menu_items = MenuItem.objects.all()  # Fetch menu items from the database
     return render(request, 'menu.html', {'menu_items': menu_items})
 
 # Sign-up view for new users
-
-
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -53,12 +40,9 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 # Reservation view
-
-
 @login_required
 def your_reservation_view(request):
     if request.method == 'POST':
-        # Extract data from POST request
         date = request.POST.get('date')
         time = request.POST.get('time')
         guests = request.POST.get('guests')
@@ -66,44 +50,41 @@ def your_reservation_view(request):
         email = request.POST.get('email')
         table_id = request.POST.get('table')
 
-        # Validate required fields
-
-
         if not all([date, time, guests, phone, email, table_id]):
-             return JsonResponse(
-                 {'error': 'Missing required fields.'}, status=400
-             )
+            return JsonResponse({'error': 'Missing required fields.'}, status=400)
 
+        table = get_object_or_404(Table, id=table_id)
+        booking = Booking.objects.create(
+            user=request.user,
+            date=date,
+            time=time,
+            guests=guests,
+            phone=phone,
+            email=email,
+            table=table,
+        )
         return JsonResponse({'message': 'Booking successfully made!'})
-
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
 # Bookings view
-
-
 @login_required
 def booking_list(request):
     bookings = Booking.objects.filter(user=request.user)
     return render(request, 'bookings.html', {'bookings': bookings})
 
-
 # CRUD Views for Booking
-
-
 @login_required
 def create_booking(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
-            booking.user = request.user  # Assuming the user is logged in
+            booking.user = request.user
             booking.save()
-            return redirect('booking_list')  # Redirect to list of bookings
+            return redirect('booking_list')
     else:
         form = BookingForm()
     return render(request, 'booking_form.html', {'form': form})
-
-
 
 @login_required
 def update_booking(request, pk):
@@ -112,30 +93,27 @@ def update_booking(request, pk):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            return redirect('booking_list')  # Redirect to the list of bookings
+            return redirect('booking_list')
     else:
         form = BookingForm(instance=booking)
     return render(request, 'booking_form.html', {'form': form})
-
-
 
 @login_required
 def delete_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk, user=request.user)
     if request.method == 'POST':
         booking.delete()
-        return redirect('booking_list')  # Redirect to the list of bookings
+        return redirect('booking_list')
     return render(request, 'confirm_delete.html', {'booking': booking})
-
 
 # Check if the user is an admin
 def is_admin(user):
-    return user.is_staff or user.is_superuser
+    return user.is_superuser  # Restrict to superusers only
 
-# Admin view for all bookings
+# Admin views
 @user_passes_test(is_admin)
 def admin_booking_list(request):
-    bookings = Booking.objects.all()  # Fetch all bookings
+    bookings = Booking.objects.all()
     return render(request, 'admin_bookings.html', {'bookings': bookings})
 
 @user_passes_test(is_admin)
@@ -145,7 +123,7 @@ def admin_update_booking(request, pk):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            return redirect('admin_booking_list')  # Redirect to the list of all bookings
+            return redirect('admin_booking_list')
     else:
         form = BookingForm(instance=booking)
     return render(request, 'admin_booking_form.html', {'form': form})
@@ -155,5 +133,5 @@ def admin_delete_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk)
     if request.method == 'POST':
         booking.delete()
-        return redirect('admin_booking_list')  # Redirect to the list of all bookings
+        return redirect('admin_booking_list')
     return render(request, 'admin_confirm_delete.html', {'booking': booking})
