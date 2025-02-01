@@ -46,8 +46,8 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Automatically log the user in after sign-up
-            return redirect('restaurant')  # Redirect to the index page after signup
+            login(request, user)
+            return redirect('restaurant')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
@@ -70,7 +70,9 @@ def your_reservation_view(request):
 
 
         if not all([date, time, guests, phone, email, table_id]):
-            return JsonResponse({'error': 'Missing required fields.'}, status=400)
+             return JsonResponse(
+                 {'error': 'Missing required fields.'}, status=400
+             )
 
         return JsonResponse({'message': 'Booking successfully made!'})
 
@@ -84,7 +86,10 @@ def booking_list(request):
     bookings = Booking.objects.filter(user=request.user)
     return render(request, 'bookings.html', {'bookings': bookings})
 
+
 # CRUD Views for Booking
+
+
 @login_required
 def create_booking(request):
     if request.method == 'POST':
