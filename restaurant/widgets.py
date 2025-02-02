@@ -11,6 +11,8 @@ class TwoHourIntervalTimeWidget(forms.Select):
         current_time = time(12, 0)  # Starting from 12:00 PM
         closing_time = time(23, 0)  # Until 11:00 PM
         while current_time < closing_time:
-            choices.append((current_time.strftime('%H:%M'), current_time.strftime('%I:%M %p')))
+            choices.append((
+                current_time.strftime('%H:%M'), current_time.strftime('%I:%M %p')
+            ))
             current_time = (datetime.combine(date.today(), current_time) + timedelta(hours=2)).time()
         return choices

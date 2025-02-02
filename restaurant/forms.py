@@ -1,6 +1,7 @@
 from django import forms
 from .models import Booking, Table, SpecialRequest
 
+
 class BookingForm(forms.ModelForm):
     table = forms.ModelChoiceField(
         queryset=Table.objects.all(),
@@ -14,11 +15,11 @@ class BookingForm(forms.ModelForm):
         required=False,
         label="Special Requests"
     )
-    
+
     class Meta:
         model = Booking
         fields = [
-            'date', 'start_time', 'num_guests', 
+            'date', 'start_time', 'num_guests',
             'special_requests', 'table'
         ]
         widgets = {
