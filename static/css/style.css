@@ -47,6 +47,14 @@ h1 {
     border-spacing: 10px;
 }
 
+.navbar-toggler {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color:#ef2f2c;
+    border: 1px solid #ef2f2c;
+    border-radius: .25rem;
+
 .menu-sections {
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
