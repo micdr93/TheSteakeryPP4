@@ -154,6 +154,16 @@ h1, h2 {
     box-sizing: border-box;
 }
 
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+
 button {
     background-color: #ef2f2c;
     color: white;

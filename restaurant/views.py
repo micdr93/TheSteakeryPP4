@@ -49,6 +49,7 @@ def your_reservation_view(request):
         phone = request.POST.get('phone')
         email = request.POST.get('email')
         table_id = request.POST.get('table')
+        special_requests = request.POST.get('special_requests', '')  
 
         if not all([date, time, guests, phone, email, table_id]):
             return JsonResponse({'error': 'Missing required fields.'}, status=400)
@@ -62,6 +63,7 @@ def your_reservation_view(request):
             phone=phone,
             email=email,
             table=table,
+            special_requests=special_requests  
         )
         return JsonResponse({'message': 'Booking successfully made!'})
     return JsonResponse({'error': 'Invalid request'}, status=400)
@@ -135,3 +137,5 @@ def admin_delete_booking(request, pk):
         booking.delete()
         return redirect('admin_booking_list')
     return render(request, 'admin_confirm_delete.html', {'booking': booking})
+
+
