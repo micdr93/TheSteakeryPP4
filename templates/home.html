@@ -2,15 +2,13 @@
 {% load static %} 
 
 {% block content %}
-<br> </br>
+
 <div class="container text-center mt-5">
-    <h1>Welcome to The Steakery!</h1>
+    <img src="{% static 'images/the_steakery_home.png' %}" style="width: 600px; height: auto; opacity: 0.5;">
+    <br> </br>
     <br> </br>
     <h3>Bake by Day, Steak by Night</h3>
-    <br> </br>
     <p>Experience the finest steaks and freshly baked delicacies.</p>
-    <br> </br>
-
 
     {% if user.is_authenticated %}
         <p>Welcome back, {{ user.username }}!</p>
