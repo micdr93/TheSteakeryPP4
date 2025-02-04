@@ -21,8 +21,6 @@ a {
 p {
     font-size: 1.1rem;
     line-height: 1.6;
-    align-items: center;
-
 }
 
 a:hover {
@@ -63,6 +61,8 @@ h1, h2 {
 
 .navbar a:hover, .navbar a:focus {
     color: #b22222;
+    background-color: transparent;
+}
 }
 
 .navbar .active {
@@ -75,6 +75,27 @@ h1, h2 {
     gap: 10px;
 }
 
+/* Custom Styling for Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #ef2f2c;  /* Red background */
+    border-radius: 50%;  /* Circular button */
+    padding: 15px;  /* Adjust size */
+}
+
+/* Hover effect for controls */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(239, 47, 44, 0.8); /* Slight transparency */
+    border-radius: 50%;
+}
+
+/* Optional: Make arrows white for contrast */
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+    color: white;
+}
+}
 .btn {
     padding: 8px 15px;
     border-radius: 5px;
@@ -180,19 +201,16 @@ button {
     margin-top: 10px;
     width: 100%;
 }
-
 .navbar a:hover, .navbar a:focus {
-    color: #b22222 !important;
-    background-color: transparent !important;
+    color: #b22222;
+    background-color: transparent;
 }
-
-button:hover {
     background-color: #b22222;
 }
 
 ./* General Gallery Styling */
 .gallery {
-    display: flex; /* Flexbox to align items side by side */
+/* General Gallery Styling */
     justify-content: space-between; /* Even spacing between items */
     gap: 20px; /* Adds space between items */
     flex-wrap: wrap; /* Allows wrapping when necessary (for smaller screens) */
