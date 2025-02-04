@@ -1,6 +1,5 @@
-{% load static %} 
 {% extends 'base.html' %}
-
+{% load static %} 
 
 {% block title %}
 The Steakery
@@ -9,16 +8,21 @@ The Steakery
 <body>
 
 {% block content %}
+
+<br> </br>
+
     <header>
         <h1>Welcome to The Steakery</h1>
-        <p>Dublin's Premier Steakhouse & Bakery</p>
+     
     </header>
 
+
+    <br> </br>
 
 
     <section id="hero" class="text-center">
         <div class="d-flex justify-content-center">
-            <img src="{% static 'images/the_steakery_home.png' %}" style="width: 200px; height: auto;">
+            <img src="{% static 'images/the_steakery_home.png' %}" style="width: 500px; height: auto;">
         </div>
         <div class="hero-text mt-4">
             <h2>Experience the Art of Grilling and Baking</h2>
@@ -27,11 +31,6 @@ The Steakery
     
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2024 The Steakery. All rights reserved.</p>
-        <p><i class="fas fa-map-marker-alt"></i> Grafton Street, Dublin, Ireland | <i class="fas fa-phone"></i> +353 1 234 5678</p>
-    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
