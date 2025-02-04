@@ -9,12 +9,13 @@ class BookingForm(forms.ModelForm):
         widget=forms.Select(attrs={'class': 'form-control'}),
         help_text="Select an available table",
     )
-    special_requests = forms.ModelMultipleChoiceField(
-        queryset=SpecialRequest.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False,
-        label="Special Requests"
-    )
+    special_requests = forms.CharField(
+    widget=forms.Textarea(attrs={'rows': 3}),
+    required=False,
+    label="Special Requests"
+)
+
+    
 
     class Meta:
         model = Booking

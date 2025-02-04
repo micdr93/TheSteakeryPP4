@@ -18,6 +18,12 @@ a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    align-items: center;
+
+}
 
 a:hover {
     color: #b22222;
