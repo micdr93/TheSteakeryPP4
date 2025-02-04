@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #ffffff;
@@ -12,65 +12,103 @@ body {
     flex-direction: column;
     height: 100vh;
 }
+
 a {
     color: #f44b4b;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-header {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-footer {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 
+a:hover {
+    color: #b22222;
 }
-h1 {
+
+header, footer {
     align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1, h2 {
+    text-align: center;
 }
 
 .navbar {
     background-color: #ffffff;
     font-family: "Poppins", sans-serif;
     text-decoration: none;
-    border-color: #ef2f2c;
-    border-width: 3px;
     border-bottom: 3px solid #ef2f2c;
-    color: #ef2f2c;
-    padding-bottom: 10px;
-    padding-top: 25px;
-    border-spacing: 10px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navbar-toggler {
-    padding: .25rem .75rem;
-    font-size: 1.25rem;
-    line-height: 1;
-    background-color:#ef2f2c;
-    border: 1px solid #ef2f2c;
-    border-radius: .25rem;
+.navbar-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #ef2f2c;
+    font-weight: 600;
+}
+
+.navbar a:hover, .navbar a:focus {
+    color: #b22222;
+}
+
+.navbar .active {
+    color: black;
+    font-weight: 700;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #ef2f2c;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #555;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
 
 .menu-sections {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-    justify-content: space-between; /* Add spacing between columns */
-    gap: 20px; /* Optional: Add some gap between columns */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .menu-category {
-    flex: 1 1 calc(25% - 20px); /* Allow each category to take up 25% of the space, minus some margin */
-    min-width: 200px; /* Ensure columns don't get too narrow */
+    flex: 1 1 calc(25% - 20px);
+    min-width: 200px;
     align-items: center;
 }
 
 .menu-category ul {
     padding: 0;
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none;
 }
 
 .menu-category h2 {
@@ -96,13 +134,8 @@ h1 {
 }
 
 #restaurant-logo {
-    max-width: 100%; /* Make sure the logo scales with the form */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 20px; /* Space between the logo and form title */
-}
-
-h2 {
-    text-align: center;
+    max-width: 100%;
+    height: auto;
     margin-bottom: 20px;
 }
 
@@ -122,21 +155,26 @@ h2 {
 }
 
 button {
-    background-color: #a1f9a4;
+    background-color: #ef2f2c;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    width: 100%; /* Make the button full-width on smaller screens */
+    width: 100%;
+}
+
+.navbar a:hover, .navbar a:focus {
+    color: #b22222 !important;
+    background-color: transparent !important;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #b22222;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -147,12 +185,12 @@ button:hover {
     }
 
     #restaurant-logo {
-        max-width: 80%; /* Scale down the logo on smaller screens */
+        max-width: 80%;
         margin-bottom: 15px;
     }
 
     h2 {
-        font-size: 1.5em; /* Adjust font size for smaller screens */
+        font-size: 1.5em;
     }
 
     button {
