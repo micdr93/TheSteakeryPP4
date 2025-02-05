@@ -17,14 +17,6 @@ class Table(models.Model):
     def __str__(self):
         return f"Table {self.table_number} - Max Capacity: {self.max_capacity}"
 
-class MenuItem(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-
-    def __str__(self):
-        return self.name
-
 class Booking(models.Model):
     WEEKDAY_OPENING_TIME = time(12, 0)  # 12:00 PM
     WEEKDAY_CLOSING_TIME = time(22, 0)  # 10:00 PM
@@ -85,3 +77,11 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking {self.id} - User: {self.user.username}, Table {self.table.table_number}, Date: {self.date}, Time: {self.start_time}-{self.end_time}"
+
+class MenuItem(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __str__(self):
+        return self.name

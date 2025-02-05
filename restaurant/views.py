@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Booking, Table, MenuItem  # Ensure MenuItem is imported
+from .models import Booking, Table, MenuItem  
 from .forms import BookingForm
 
 # Home view
@@ -139,3 +139,31 @@ def admin_delete_booking(request, pk):
     return render(request, 'admin_confirm_delete.html', {'booking': booking})
 
 
+@login_required
+def your_reservation_view(request):
+    if request.method == 'POST':
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        guests = request.POST.get('guests')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        table_id = request.POST.get('table')
+        special_requests = request.POST.get('special_requests', '')  # Capture the field
+
+        if not all([date, time, guests, phone, email, table_id]):
+            return JsonResponse({'error': 'Missing required fields.'}, status=400)
+
+        table = get_object_or_404(Table, id=table_id)
+        booking = Booking.objects.create(
+            user=request.user,
+            date=date,
+            time=time,
+            guests=guests,
+            phone=phone,
+            email=email,
+            table=table,
+            special_requests=special_requests  # Save the field
+        )
+        return JsonResponse({'message': 'Booking successfully made!'})
+    
+    return JsonResponse({'error': 'Invalid request'}, status=400)
