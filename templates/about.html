@@ -1,52 +1,37 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
+
 {% block content %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Steakery | About Us</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
 
-<body>
 
-    <section id="about" class="container my-5">
+<div class="container my-5">
+    <section id="about" class="text-center mb-5">
         <h2>Our Story</h2>
         <p>The Steakery was born out of a passion for quality food and a love for the city of Dublin. Combining the best of both worlds—grilling and baking—we offer a unique dining experience that has quickly become a favorite among locals and visitors alike. Our chefs are dedicated to using only the finest ingredients, sourced locally whenever possible, to create dishes that are both flavorful and satisfying.</p>
     </section>
 
-    <!-- Image Carousel -->
-    <section id="hero" class="text-center">
-        <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'images/the_steakery_bakery.png' %}" class="d-block mx-auto" style="width: 500px; height: auto;">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'images/bakery1.jpeg' %}" class="d-block mx-auto" style="width: 500px; height: auto;">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'images/the_steakery_dining.png' %}" class="d-block mx-auto" style="width: 500px; height: auto;">
-                </div>
-            </div>
-            <!-- Carousel Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="{% static 'images/the_steakery_bakery.png' %}" alt="The Steakery Bakery">
         </div>
-    </section>
-
-    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-</body>
-</html>
+        <div class="gallery-item">
+            <img src="{% static 'images/bakery1.jpeg' %}" alt="The Steakery Bakery 1">
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'images/steakery1.png' %}" alt="The Steakery Bakery 2">
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'images/steakery3.png' %}" alt="The Steakery Bakery 3">
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'images/steakery4.png' %}" alt="Bakery 4">
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'images/steakery5.png' %}" alt="The Steakery Bakery 5">
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'images/steakery2.png' %}" alt="The Steakery Bakery 6">
+        </div>
+    </div>
+</div>
 {% endblock %}

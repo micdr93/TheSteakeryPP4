@@ -63,7 +63,7 @@ h1, h2 {
     color: #b22222;
     background-color: transparent;
 }
-}
+
 
 .navbar .active {
     color: black;
@@ -95,7 +95,7 @@ h1, h2 {
 .carousel-control-next-icon::before {
     color: white;
 }
-}
+
 .btn {
     padding: 8px 15px;
     border-radius: 5px;
@@ -201,44 +201,46 @@ button {
     margin-top: 10px;
     width: 100%;
 }
-.navbar a:hover, .navbar a:focus {
-    color: #b22222;
-    background-color: transparent;
-}
-    background-color: #b22222;
+
+/* Gallery Styling */
+.gallery {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-./* General Gallery Styling */
-.gallery {
-/* General Gallery Styling */
-    justify-content: space-between; /* Even spacing between items */
-    gap: 20px; /* Adds space between items */
-    flex-wrap: wrap; /* Allows wrapping when necessary (for smaller screens) */
-  }
-  
-  /* Gallery Item Styling */
-  .gallery-item {
-    flex: 1 1 30%; /* Each item takes up 30% of the container (3 items per row) */
-    box-sizing: border-box; /* Ensures padding/margins don't affect layout */
-  }
-  
-  .gallery-item img {
-    width: 100%; /* Image takes up full width of the parent container */
-    height: auto; /* Maintains the aspect ratio */
-    border-radius: 8px; /* Optional: Adds rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for depth */
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
+.gallery-item {
+    width: 200px;
+    height: 200px;
+    flex: 0 0 200px;
+    margin: 10px;
+}
+
+.gallery-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
     .gallery-item {
-      flex: 1 1 48%; /* Two items per row on tablet-sized screens */
+        flex: 0 1 300px;
+        max-width: 300px;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .gallery-item {
-      flex: 1 1 100%; /* One item per row on mobile screens */
+    
+    .carousel-item img {
+        height: 300px;
     }
-  }
-  
+}
