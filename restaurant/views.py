@@ -167,3 +167,8 @@ def your_reservation_view(request):
         return JsonResponse({'message': 'Booking successfully made!'})
     
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+def special_requests_view(request):
+    special_requests = Booking.objects.exclude(special_requests="")  # Get bookings with special requests
+    print(special_requests)  # Debugging output
+    return render(request, "special_requests.html", {"special_requests": special_requests})
