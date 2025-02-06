@@ -1,16 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
     font-family: "Poppins", sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     background-color: #ffffff;
     color: #f44b4b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
 }
 
 a {
@@ -18,13 +13,14 @@ a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
 
 a:hover {
     color: #b22222;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 header, footer {
@@ -41,12 +37,8 @@ h1, h2 {
 .navbar {
     background-color: #ffffff;
     font-family: "Poppins", sans-serif;
-    text-decoration: none;
     border-bottom: 3px solid #ef2f2c;
     padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .navbar-nav {
@@ -64,36 +56,20 @@ h1, h2 {
     background-color: transparent;
 }
 
-
 .navbar .active {
     color: black;
     font-weight: 700;
 }
 
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-/* Custom Styling for Carousel Controls */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: #ef2f2c;  /* Red background */
-    border-radius: 50%;  /* Circular button */
-    padding: 15px;  /* Adjust size */
-}
-
-/* Hover effect for controls */
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    background-color: rgba(239, 47, 44, 0.8); /* Slight transparency */
-    border-radius: 50%;
-}
-
-/* Optional: Make arrows white for contrast */
-.carousel-control-prev-icon::before,
-.carousel-control-next-icon::before {
-    color: white;
+/* Responsive Navbar */
+@media (max-width: 991px) {
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar-collapse {
+        width: 100%;
+    }
 }
 
 .btn {
@@ -130,25 +106,19 @@ h1, h2 {
 .menu-category {
     flex: 1 1 calc(25% - 20px);
     min-width: 200px;
-    align-items: center;
 }
 
-.menu-category ul {
-    padding: 0;
-    list-style-type: none;
+@media (max-width: 768px) {
+    .menu-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu-category {
+        flex: 1 1 100%;
+    }
 }
 
-.menu-category h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.menu-category li {
-    font-size: 1rem;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
+/* Booking Form */
 #booking-form {
     background-color: #ffe5e5;
     padding: 20px;
@@ -157,56 +127,20 @@ h1, h2 {
     max-width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    box-sizing: border-box;
 }
 
-#restaurant-logo {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-#booking-form label {
-    display: block;
-    margin-bottom: 5px;
-    text-align: left;
-}
-
-#booking-form input, #booking-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    resize: vertical;
-    box-sizing: border-box;
-}
-
-
-button {
-    background-color: #ef2f2c;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
+@media (max-width: 600px) {
+    #booking-form {
+        width: 90%;
+        max-width: 100%;
+    }
 }
 
 /* Gallery Styling */
 .gallery {
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
     margin: 0 auto;
@@ -214,33 +148,52 @@ button {
 }
 
 .gallery-item {
-    width: 200px;
-    height: 200px;
-    flex: 0 0 200px;
-    margin: 10px;
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 250px;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
 }
 
 .gallery-item img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.05);
+/* Adjust for smaller screens */
+@media (max-width: 1024px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px);
+    }
 }
 
-/* Responsive adjustments */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .gallery-item {
-        flex: 0 1 300px;
+        flex: 1 1 100%;
         max-width: 300px;
     }
-    
-    .carousel-item img {
-        height: 300px;
-    }
+}
+
+/* Ensure images scale properly */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* About Section */
+#about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#about p {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.6;
 }
