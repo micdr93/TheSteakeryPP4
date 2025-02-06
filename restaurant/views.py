@@ -102,11 +102,11 @@ def update_booking(request, pk):
 
 @login_required
 def delete_booking(request, pk):
-    booking = get_object_or_404(Booking, pk=pk, user=request.user)
+    booking = get_object_or_404(Booking, pk=pk)
     if request.method == 'POST':
         booking.delete()
         return redirect('booking_list')
-    return render(request, 'confirm_delete.html', {'booking': booking})
+    return render(request, 'booking_confirm_delete.html', {'booking': booking})
 
 # Check if the user is an admin
 def is_admin(user):
