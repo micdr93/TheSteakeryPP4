@@ -1,4 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: 'Bebas Neue';
+:root {
+    --primary-color: #f44b4b;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #f44b4b;
+}
 
 body {
     font-family: "Poppins", sans-serif;
@@ -117,6 +148,11 @@ h1, h2 {
         flex: 1 1 100%;
     }
 }
+
+.menu-category.text-center {
+    text-align: center;
+}
+
 
 /* Booking Form */
 #booking-form {
