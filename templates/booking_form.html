@@ -11,11 +11,15 @@
     <h2>Booking Form</h2>
    
 <br> </br>
-    <form method="post">
+<div class="form-container">
+    <form method="post" class="booking-form">
+        
         {% csrf_token %}
         {{ form.as_p }}
-       
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </form>
+</div>
 {% endblock %}
