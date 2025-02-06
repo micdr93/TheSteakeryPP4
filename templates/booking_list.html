@@ -22,7 +22,7 @@
             {% for booking in bookings %}
             <tr>
                 <td>{{ booking.date }}</td>
-                <td>{{ booking.start_time }}</td>
+                <td>{{ booking.time }}</td> <!-- Updated field name -->
                 <td>{{ booking.num_guests }}</td>
                 <td>
                     <a href="{% url 'update_booking' booking.pk %}" class="btn btn-primary">Edit</a>

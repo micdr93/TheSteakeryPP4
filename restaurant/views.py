@@ -72,7 +72,7 @@ def your_reservation_view(request):
 @login_required
 def booking_list(request):
     bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'bookings.html', {'bookings': bookings})
+    return render(request, 'booking_list.html', {'bookings': bookings})
 
 # CRUD Views for Booking
 @login_required
