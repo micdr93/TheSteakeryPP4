@@ -13,7 +13,6 @@
                 <th>Time</th>
                 <th>Guests</th>
                 <th>Table</th>
-                <th>Special Requests</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,7 +23,6 @@
                     <td>{{ booking.start_time }}</td>
                     <td>{{ booking.num_guests }}</td>
                     <td>{{ booking.table }}</td>
-                    <td>{{ booking.special_requests }}</td>
                     <td>
                         <a href="{% url 'update_booking' booking.pk %}" class="btn btn-primary btn-sm">Edit</a>
                         <form method="post" action="{% url 'delete_booking' booking.pk %}" style="display:inline;">
@@ -42,4 +40,5 @@
     </table>
 
     <a href="{% url 'create_booking' %}" class="btn btn-success">Create New Booking</a>
+
 {% endblock %}

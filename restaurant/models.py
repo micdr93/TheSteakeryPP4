@@ -19,7 +19,7 @@ class Table(models.Model):
     )
 
     def __str__(self):
-        return f"Table {self.table_number} - Max {self.max_capacity} guests"
+        return f"Table {self.table_number} - Max {self.max_capacity} num_guests"
 
 class Booking(models.Model):
     WEEKDAY_OPENING_TIME = time(12, 0)
@@ -76,7 +76,7 @@ class Booking(models.Model):
 
         # Table capacity validation
         if self.table and self.num_guests > self.table.max_capacity:
-            raise ValidationError(f"Table {self.table.table_number} only accommodates {self.table.max_capacity} guests.")
+            raise ValidationError(f"Table {self.table.table_number} only accommodates {self.table.max_capacity} num_guests.")
 
         # Check for overlapping bookings
         overlapping_bookings = Booking.objects.filter(

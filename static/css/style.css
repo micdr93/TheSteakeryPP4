@@ -127,6 +127,12 @@ h1, h2 {
     opacity: 0.8;
 }
 
+.btn-success {
+    background-color: #555;
+    color: white;
+}
+    
+
 .menu-sections {
     display: flex;
     flex-wrap: wrap;
@@ -151,6 +157,14 @@ h1, h2 {
 
 .menu-category.text-center {
     text-align: center;
+}
+
+/* Table Styling */
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    background-color: #ffffff;
 }
 
 
