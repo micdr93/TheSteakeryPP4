@@ -9,12 +9,15 @@
 
     <section id="contact" class="container my-5">
         <h2>Get in Touch</h2>
+        <br></br>
+        <br> </br>
         <p>We'd love to hear from you! Whether you have a question, or just want to say hello, 
     feel free to reach out to us using the form below or through the contact information provided.</p>
-
+         <br></br>
         <div class="row">
             <div class="col-md-6">
                 <h3>Contact Form</h3>
+                <br></br>
                 <form method="post" action="{% url 'contact' %}">
                     {% csrf_token %}
                     <div class="form-group">
@@ -32,9 +35,10 @@
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
-
+            <br></br>
             <div class="col-md-6">
                 <h3>Contact Information</h3>
+                <br></br>
                 <p><strong>Address:</strong> Grafton Street, Dublin, Ireland</p>
                 <p><strong>Phone:</strong> <i class="fas fa-phone"></i> +353 1 234 5678</p>
                 <p><strong>Email:</strong> <i class="fas fa-envelope"></i> <a href="mailto:info@thesteakery.ie">info@thesteakery.ie</a></p>
@@ -46,6 +50,7 @@
                 </ul>
             </div>
         </div>
+
     </section>
 
 {% endblock %}
