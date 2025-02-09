@@ -411,7 +411,7 @@ All critical functions were tested, and issues were addressed during the develop
 
 ### Code & Content 
 * Code from [Oasis Hotels](https://github.com/Marchopkins96/oasis-hotels/tree/main) was used and modified for this project.
-* Images were created using Adobe Express
+* Images were created using Adobe Express and Adobe Stock.
 
 
 ### Acknowledgements
