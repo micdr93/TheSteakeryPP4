@@ -16,12 +16,12 @@
             </tr>
         </thead>
         <tbody>
-           
             {% for booking in bookings %}
                 <tr>
                     <td>{{ booking.date }}</td>
                     <td>{{ booking.start_time }}</td>
                     <td>{{ booking.num_guests }}</td>
+                    <td>{{ booking.additional_requests }}</td>
                     <td>
                         <form method="post" action="{% url 'update_booking' booking.pk %}">
                             {% csrf_token %}

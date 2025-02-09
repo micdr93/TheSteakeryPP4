@@ -1,4 +1,3 @@
-
 # The Steakery - Bake by Day, Steak by Night: Django-Based Steakhouse & Bakery Website
 
 ## Project Overview 
@@ -421,6 +420,3 @@ All critical functions were tested, and issues were addressed during the develop
 * I would also like to express my gratitude to my nephew Daniel for his valuable contributions to the development of The Steakery concept. 
 * I would like to thank Code Institute community and team for their help whenever needed.
 
-### Note to Assessor
-
-Please be aware that this project was completed under significant time pressure, as I had previously deleted the original repository by mistake. This has been an important learning experience for me, particularly in avoiding the creation of multiple repositories with similar names, which contributed to the error. While I have worked hard to rebuild the project as quickly as possible, there may be areas that would have benefited from more attention and refinement. I appreciate your understanding as I continue to learn and grow from this experience.

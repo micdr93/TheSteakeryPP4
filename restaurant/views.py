@@ -106,7 +106,8 @@ def delete_booking(request, pk):
     if request.method == 'POST':
         booking.delete()
         return redirect('booking_list')
-    return render(request, 'booking_confirm_delete.html', {'booking': booking})
+    return render(request, 'confirm_delete.html', {'booking': booking})
+
 
 # Check if the user is an admin
 def is_admin(user):
@@ -168,7 +169,3 @@ def your_reservation_view(request):
     
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
-def special_requests_view(request):
-    special_requests = Booking.objects.exclude(special_requests="")  # Get bookings with special requests
-    print(special_requests)  # Debugging output
-    return render(request, "special_requests.html", {"special_requests": special_requests})

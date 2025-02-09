@@ -12,7 +12,7 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Guests</th>
-                <th>Table</th>
+                <th>Additional Requests</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,13 +22,10 @@
                     <td>{{ booking.date }}</td>
                     <td>{{ booking.start_time }}</td>
                     <td>{{ booking.num_guests }}</td>
-                    <td>{{ booking.table }}</td>
+                    <td>{{ booking.additional_requests }}</td>
                     <td>
                         <a href="{% url 'update_booking' booking.pk %}" class="btn btn-primary btn-sm">Edit</a>
-                        <form method="post" action="{% url 'delete_booking' booking.pk %}" style="display:inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
+                        <a href="{% url 'delete_booking' booking.pk %}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
             {% empty %}
