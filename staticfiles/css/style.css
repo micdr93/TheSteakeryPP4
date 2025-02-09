@@ -1,4 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: 'Bebas Neue';
+:root {
+    --primary-color: #f44b4b;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #f44b4b;
+}
 
 body {
     font-family: "Poppins", sans-serif;
@@ -96,6 +127,12 @@ h1, h2 {
     opacity: 0.8;
 }
 
+.btn-success {
+    background-color: #555;
+    color: white;
+}
+    
+
 .menu-sections {
     display: flex;
     flex-wrap: wrap;
@@ -118,6 +155,19 @@ h1, h2 {
     }
 }
 
+.menu-category.text-center {
+    text-align: center;
+}
+
+/* Table Styling */
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    background-color: #ffffff;
+}
+
+
 /* Booking Form */
 #booking-form {
     background-color: #ffe5e5;
@@ -136,6 +186,26 @@ h1, h2 {
     }
 }
 
+
+
+.form-center {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 20px;
+}
+
+.form-check {
+    text-align: center;
+}
 /* Gallery Styling */
 .gallery {
     display: flex;
@@ -196,4 +266,33 @@ img {
     text-align: justify;
     font-size: 1rem;
     line-height: 1.6;
+}
+
+/* Centering Containers */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+/* Apply Centering to Login, Booking, and Menu Pages */
+#login-page, #booking-page, #menu-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Ensure Forms Are Not Too Wide */
+form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffe5e5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
