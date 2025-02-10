@@ -255,7 +255,7 @@ The system maintains proper relationships between all entities while allowing fo
 * Delete Booking
 ![Steakery Delete Booking](media/readme_images/delete_booking_mobile.png)
 * Delete Booking
-![Steakery Edit Booking](media/readme_images/edit_booking_desktop.png)
+![Steakery Edit Booking](media/readme_images/edit_Booking_desktop.png)
 * Edit Booking
 ![Steakery Edit Booking](media/readme_images/edit_booking_mobile.png)
 * Edit Booking
