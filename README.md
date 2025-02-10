@@ -229,62 +229,104 @@ The system maintains proper relationships between all entities while allowing fo
 * The system ensures there are no double bookings by checking for existing reservations for the same table on the selected date and time.
 * If an overlapping booking is found, an error message is displayed, preventing users from booking the same table at the same time.
 
-## Existing Features
+### Existing Features
 
+* Home Page:
+   * Displays the navigation bar, with links to Menu, Contact, About and Bookings.
 ![Steakery Homepage](media/readme_images/home_desktop.png)
 * Home Page on Desktop
 ![Steakery Homepage](media/readme_images/home_mobile.png)
 * Home Page on Mobile
+
+* About Page:
+   * Displays the About us section of the project, with a brief story and images.
 ![Steakery About](media/readme_images/about_desktop.png)
 * About Page on Desktop
 ![Steakery About](media/readme_images/about_mobile.png)
 * About Page on Mobile
+
+* Menu Page:
+   * Displays the Menu for the restaurant.
 ![Steakery Menu](media/readme_images/menu_desktop.png)
 * Menu page on Desktop
 ![Steakery Menu](media/readme_images/menu_mobile.png)
 * Menu page on Mobile
+
+* Contact Page:
+   * Displays the contact page and infoirmation for the restaurant including a submission form for users to send a message.
 ![Steakery Contact](media/readme_images/contact_desktop.png)
 * Contact page on Desktop
 ![Steakery Contact](media/readme_images/contact_mobile.png)
 * Contact page on Mobile
+
+* Create Booking Page:
+   * Allows users to create bookings, by signing up or logging in.
 ![Steakery Create Booking](media/readme_images/create_booking_desktop.png)
 * Create Booking on Desktop
 ![Steakery Create Booking](media/readme_images/create_booking_mobile.png)
 * Create Booking on Mobile
+
+* Delete Booking Page:
+   * Allows users to delete existing bookings, by signing up or logging in.
 ![Steakery Delete Booking](media/readme_images/delete_booking_desktop.png)
 * Delete Booking
 ![Steakery Delete Booking](media/readme_images/delete_booking_mobile.png)
 * Delete Booking
+
+* Edit Booking Page:
+   * Allows users to edit existing bookings, by signing up or logging in.
 ![Steakery Edit Booking](media/readme_images/edit_Booking_desktop.png)
 * Edit Booking
 ![Steakery Edit Booking](media/readme_images/edit_booking_mobile.png)
 * Edit Booking
+
+* Existing Bookings:
+   * Allows users to view existing bookings, by signing up or logging in.
 ![Steakery Existing Booking](media/readme_images/bookings_list_desktop.png)
 * Existing Bookings on Desktop
 ![Steakery Existing Booking](media/readme_images/bookings_list_mobile.png)
 * Existing Bookings on Mobile
 ![Steakery Existing Booking](media/readme_images/bookings_list_mobile_2.png)
-* Existing Bookings on Mobile
+
+* Booking Errors:
+   * A sample of a couple of error messages users can encounter if they book a table out of hours, the same table twice etc.
 ![Steakery Booking Error](media/readme_images/booking_error_message_desktop.png)
 * Booking Eerror on Desktop
 ![Steakery Booking Error](media/readme_images/booking_error_message_mobile.png)
 * Booking Error on Mobile
+
+* Table Selection:
+   * Allows users to select a table with the appropriate capacity within the bookin form.
 ![Steakery Table Selection](media/readme_images/table_selection_desktop.png)
 * Table Selection on Desktop
 ![Steakery Table Selection](media/readme_images/table_selection_mobile.png)
 * Table Selection on Mobile
+
+* Log In :
+   * When a first time user clicks on the bookings page, they are requested to Log In or Sign Up
 ![Steakery Booking Login](media/readme_images/bookings_desktop.png)
 * Booking Login on Desktop
 ![Steakery Booking Login](media/readme_images/bookings_mobile.png)
 * Booking Login on Desktop
+
+
+* Sign Up:
+   * When signing up, users are asked for a Username and a strong password, and to confirm the password.
 ![Steakery Signup](media/readme_images/signup_desktop.png)
 * Signup Page on Desktop
 ![Steakery Signup](media/readme_images/signup_mobile.png)
 * Signup Page on Mobile
+
+
+* Special Requests:
+   * When smaking a booking, users can add special requests which are visible to both users and admin when logged in.
 ![Steakery Special Requests](media/readme_images/special_requests_desktop.png)
 * Special Requests on Desktop
 ![Steakery Special Requests](media/readme_images/special_requests_mobile.png)
 * Special Requests on Mobile
+
+* Mobile Toggler:
+   * When browsing the site, mobile users now have the option of a toggler to allow mobile users to navigate the site properly.
 ![Steakery Mobile Toggler](media/readme_images/toggler.png)
 * Mobile Toggler
 
