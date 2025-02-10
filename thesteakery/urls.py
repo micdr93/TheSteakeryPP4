@@ -13,7 +13,7 @@ urlpatterns = [
     path('restaurant/', restaurant_views.index, name='restaurant'),
 
     # Contact page
-    path('contact/', restaurant_views.contact_view, name='contact'), 
+    path('contact/', restaurant_views.contact_view, name='contact'),
     # About page
     path('about/', restaurant_views.about_view, name='about'),
 
@@ -22,23 +22,23 @@ urlpatterns = [
 
     # Bookings: CRUD operations
     path('bookings/', restaurant_views.booking_list, name='booking_list'),
-    path('bookings/create/', restaurant_views.create_booking, 
+    path('bookings/create/', restaurant_views.create_booking,
          name='create_booking'),
-    path('bookings/update/<int:pk>/', restaurant_views.update_booking, 
+    path('bookings/update/<int:pk>/', restaurant_views.update_booking,
          name='update_booking'),
-    path('bookings/delete/<int:pk>/', restaurant_views.delete_booking, 
+    path('bookings/delete/<int:pk>/', restaurant_views.delete_booking,
          name='delete_booking'),
     # Authentication views using Django's built-in views for login/logout
     # Log-in page with custom template
     # Log-out functionality with redirect to home
     path(
-        'logout/', 
+        'logout/',
         auth_views.LogoutView.as_view(next_page='home'),
         name='logout'
     ),
     path(
-        'login/', 
-        auth_views.LoginView.as_view(template_name='registration/login.html'), 
+        'login/',
+        auth_views.LoginView.as_view(template_name='registration/login.html'),
         name='login'
     ),
     path('signup/', restaurant_views.signup, name='signup'),
@@ -65,4 +65,6 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATIC_ROOT
+    )

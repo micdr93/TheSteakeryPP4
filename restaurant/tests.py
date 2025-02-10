@@ -1,4 +1,4 @@
 from django.test import TestCase
-from .models import Booking, Table, SpecialRequest
+from .models import
 
 # Add your tests here.
