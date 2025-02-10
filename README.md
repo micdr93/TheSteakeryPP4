@@ -4,7 +4,7 @@
 
 **The Steakery** is a web application that serves as the online presence for a fictional steakhouse and bakery located in Dublin. This project combines an interactive frontend with a backend built using Django, allowing customers to explore the restaurant's offerings, make reservations, and manage bookings directly through the website.
 
-![Responsive Mockup](/media/readme_images/responive_mockup.png)
+![Responsive Mockup](/media/readme_images/tslogo.webp)
 
 [View The Steakery live website here](https://thesteakerypp4-443f2b4046b5.herokuapp.com/)
 ## Table of Contents
@@ -106,32 +106,50 @@ Please see the following link for the [project board](https://github.com/users/m
 ### Data Models for The Steakery
 
 1. **User Model (Django AllAuth)**
-    * Django AllAuth handles user authentication and registration. It provides a default user model to manage customer information.
-    * A user can have multiple bookings (one-to-many relationship). Each booking is associated with a single user.
+   * Django AllAuth handles user authentication and registration, providing a default user model with:
+       * `id` (Primary Key)
+       * `username` for user identification
+   * A user can have multiple bookings (one-to-many relationship)
 
 ---
 
-2. **SpecialRequest Model**
-    * The `SpecialRequest` model allows users to include special requests with their table reservations (e.g., vegetarian meals, wheelchair access).
-    * Admins can add or update special requests through the Django admin panel.
-    * This model has a many-to-many relationship with the `Booking` model, meaning users can associate multiple special requests with a booking.
+2. **Table Model**
+   * The `Table` model represents individual tables in the restaurant with:
+       * `id` (Primary Key)
+       * `table_number` (Unique Key) for distinct table identification
+       * `max_capacity` to specify guest capacity
+   * Tables can have multiple bookings over time (one-to-many relationship)
 
 ---
 
-3. **Table Model**
-    * The `Table` model represents a table in the restaurant that guests can reserve.
-    * Each table has a unique `table_number` and a `max_capacity`, indicating the number of guests the table can accommodate.
-    * The model ensures that tables are uniquely identified and helps manage available seating.
+3. **SpecialRequest Model**
+   * The `SpecialRequest` model manages special requirements with:
+       * `id` (Primary Key)
+       * `name` to describe the request type
+   * Connected to bookings through a many-to-many relationship
+   * Examples include dietary restrictions or accessibility needs
 
 ---
 
 4. **Booking Model**
-    * The `Booking` model stores information related to a table reservation made by a user. This includes the user, table, date, time, and number of guests.
-    * The model ensures that:
-        * Reservation dates and times are in the future.
-        * The number of guests does not exceed the table’s maximum capacity.
-        * Special requests (optional) can be linked to each booking.
-    * Admins can manage bookings through the Django admin panel, and users can create, edit, or delete their bookings directly from the platform.
+   * The `Booking` model manages reservations with:
+       * `id` (Primary Key)
+       * `date` for reservation date
+       * `start_time` and `end_time` for reservation duration
+       * `num_guests` for party size
+       * `additional_requests` for custom notes
+       * `created_at` timestamp
+       * `user_id` (Foreign Key) linking to User
+       * `table_id` (Foreign Key, Nullable) linking to Table
+   * Model validates:
+       * Future dates for reservations
+       * Guest count against table capacity
+       * Special request associations
+   * Managed through Django admin panel
+   * Users can perform CRUD operations on their bookings
+   * Supports many-to-many relationship with SpecialRequest model
+
+Each model is designed for efficient relationship management and data integrity in the restaurant reservation system, with proper foreign key constraints and validation rules.
 
 ## Database Scheme
 
@@ -304,8 +322,7 @@ The system maintains proper relationships between all entities while allowing fo
 * [Heroku](https://www.heroku.com/) - Used to deploy the site as a cloud-based platform.
 * [Google Fonts](https://fonts.google.com/) - Used to import the main fonts for the website.
 * [Balsamiq](https://balsamiq.com/wireframes/) - Utilized to create wireframes during the planning phase.
-* [Lucid Chart](https://lucidchart.com/) - Used to create the Entity Relationship Diagram (ERD).
-* 
+* [Mermaid Live](https://mermaid.live/edit) - Used to create the Entity Relationship Diagram (ERD).
 * [Git](https://git-scm.com/) - Version control system used to track changes in the codebase.
 * [JSHint](https://jshint.com/) - Used for JavaScript code validation.
 * [W3C Markup Validation Service](https://validator.w3.org/) - Used for validating HTML for syntax correctness.
@@ -451,7 +468,7 @@ Lighthouse, a popular open-source tool for auditing web performance, accessibili
 
 #### Results:
 - **Performance**: Scored between 85-90, depending on network speed.
-- **Accessibility**: Scored a strong 95, with minor recommendations for improving alt text descriptions and contrast.
+- **Accessibility**: Scored a strong 95
 - **SEO**: Scored 100, ensuring that metadata, structured data, and crawlability are optimal.
 - **Best Practices**: Scored 100, ensuring no critical security or performance issues.
 
@@ -462,6 +479,7 @@ Recommendations provided by Lighthouse (such as image optimizations and lazy loa
 The project was also checked using the **Code Institute Python Linter** to ensure adherence to PEP8 standards and best practices in Python coding.
 
 #### Results:
+
 - No critical issues were found during the Python code validation.
 - Minor suggestions for improvements were addressed, such as the addition of docstrings to functions and ensuring proper indentation.
 - The code is fully compliant with PEP8 standards, ensuring readability, maintainability, and reduced likelihood of bugs.
@@ -488,6 +506,7 @@ All critical functions were tested, and issues were addressed during the develop
 ### Code & Content 
 * Code from [Oasis Hotels](https://github.com/Marchopkins96/oasis-hotels/tree/main) was used and modified for this project.
 * Images were created using Adobe Express and Adobe Stock.
+
 
 
 ### Acknowledgements
