@@ -291,7 +291,7 @@ The system maintains proper relationships between all entities while allowing fo
 * Booking Errors:
    * A sample of a couple of error messages users can encounter if they book a table out of hours, the same table twice etc.
 ![Steakery Booking Error](media/readme_images/booking_error_message_desktop.png)
-   * Booking Eerror on Desktop
+   * Booking Error on Desktop
 ![Steakery Booking Error](media/readme_images/booking_error_message_mobile.png)
    * Booking Error on Mobile
 
@@ -307,7 +307,7 @@ The system maintains proper relationships between all entities while allowing fo
 ![Steakery Booking Login](media/readme_images/bookings_desktop.png)
    * Booking Login on Desktop
 ![Steakery Booking Login](media/readme_images/bookings_mobile.png)
-   * Booking Login on Desktop
+   * Booking Login on Mobile
 
 
 * Sign Up:
@@ -338,6 +338,10 @@ The system maintains proper relationships between all entities while allowing fo
 * Admins can create and manage special requests (e.g., dietary preferences, accessibility needs) linked to bookings.
 * Admins can also manage user accounts, delete user data, and view or delete bookings.
 
+
+### Features To Implement In Future:
+* User Reviews: Allow users to leave reviews of The Steakery
+* Menu Updates: Allow Admin Users to modify the Menu, Prices etc.
 
 ## Technologies Used
 
