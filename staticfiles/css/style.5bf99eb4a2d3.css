@@ -49,20 +49,20 @@ h1 {
 
 .menu-sections {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-    justify-content: space-between; /* Add spacing between columns */
-    gap: 20px; /* Optional: Add some gap between columns */
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 20px; 
 }
 
 .menu-category {
-    flex: 1 1 calc(25% - 20px); /* Allow each category to take up 25% of the space, minus some margin */
-    min-width: 200px; /* Ensure columns don't get too narrow */
+    flex: 1 1 calc(25% - 20px); 
+    min-width: 200px; 
     align-items: center;
 }
 
 .menu-category ul {
     padding: 0;
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none; 
 }
 
 .menu-category h2 {
@@ -88,9 +88,9 @@ h1 {
 }
 
 #restaurant-logo {
-    max-width: 100%; /* Make sure the logo scales with the form */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 20px; /* Space between the logo and form title */
+    max-width: 100%;
+    height: auto; 
+    margin-bottom: 20px; 
 }
 
 h2 {
@@ -121,8 +121,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    width: 100%; /* Make the button full-width on smaller screens */
-}
+    width: 100%; 
 
 button:hover {
     background-color: #45a049;
@@ -139,15 +138,16 @@ button:hover {
     }
 
     #restaurant-logo {
-        max-width: 80%; /* Scale down the logo on smaller screens */
+        max-width: 80%; 
         margin-bottom: 15px;
     }
 
     h2 {
-        font-size: 1.5em; /* Adjust font size for smaller screens */
+        font-size: 1.5em; 
     }
 
     button {
         padding: 10px;
     }
+}
 }
