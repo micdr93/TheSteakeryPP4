@@ -111,7 +111,7 @@ def delete_booking(request, pk):
 
 # Check if the user is an admin
 def is_admin(user):
-    return user.is_superuser  # Restrict to superusers only
+    return user.is_superuser 
 
 # Admin views
 @user_passes_test(is_admin)
@@ -149,7 +149,7 @@ def your_reservation_view(request):
         phone = request.POST.get('phone')
         email = request.POST.get('email')
         table_id = request.POST.get('table')
-        special_requests = request.POST.get('special_requests', '')  # Capture the field
+        special_requests = request.POST.get('special_requests', '') 
 
         if not all([date, time, num_guests, phone, email, table_id]):
             return JsonResponse({'error': 'Missing required fields.'}, status=400)
@@ -163,7 +163,7 @@ def your_reservation_view(request):
             phone=phone,
             email=email,
             table=table,
-            special_requests=special_requests  # Save the field
+            special_requests=special_requests  
         )
         return JsonResponse({'message': 'Booking successfully made!'})
     

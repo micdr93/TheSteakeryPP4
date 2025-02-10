@@ -8,8 +8,8 @@ class TwoHourIntervalTimeWidget(forms.Select):
 
     def generate_time_choices(self):
         choices = []
-        current_time = time(12, 0)  # Starting from 12:00 PM
-        closing_time = time(23, 0)  # Until 11:00 PM
+        current_time = time(12, 0)
+        closing_time = time(23, 0) 
         while current_time < closing_time:
             choices.append((
                 current_time.strftime('%H:%M'), current_time.strftime('%I:%M %p')

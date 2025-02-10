@@ -23,11 +23,11 @@ urlpatterns = [
     # Bookings: CRUD operations
     path('bookings/', restaurant_views.booking_list, name='booking_list'),
     path('bookings/create/', restaurant_views.create_booking, 
-         name='create_booking'),  # Create a booking
+         name='create_booking'),
     path('bookings/update/<int:pk>/', restaurant_views.update_booking, 
-         name='update_booking'),  # Update a booking
+         name='update_booking'),
     path('bookings/delete/<int:pk>/', restaurant_views.delete_booking, 
-         name='delete_booking'),  # Delete a booking
+         name='delete_booking'),
     # Authentication views using Django's built-in views for login/logout
     # Log-in page with custom template
     # Log-out functionality with redirect to home
@@ -41,7 +41,7 @@ urlpatterns = [
         auth_views.LoginView.as_view(template_name='registration/login.html'), 
         name='login'
     ),
-    path('signup/', restaurant_views.signup, name='signup'),  # Custom sign-up view
+    path('signup/', restaurant_views.signup, name='signup'),
 
     # Admin site
     path('admin/', admin.site.urls),
