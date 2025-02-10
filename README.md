@@ -501,7 +501,10 @@ Thorough testing was conducted throughout the development of **The Steakery** to
 - **Overlapping bookings**: Added logic to check for table availability and prevent double booking for the same time and table.
 - **Broken links in the navigation bar**: Identified and fixed paths for several internal links.
 - **CSS rendering issues in production**: Ensured that the static files are correctly handled in the production environment by adjusting `STATIC_URL` and `STATIC_ROOT` settings in `settings.py`.
-
+- **Bookings out of opening hours**: Identified an error where users could book outside of opening hours and implemented validation to prevent this happening.
+- **Special Requests**: Identified an issue where special requests from users were not logging correctly.
+Implemented a fix for this so that users can view, edit or delete their special requests on bookings.
+- **CRUD Functionality Issues**: Discovered CRUD wasn't fully operational for users, this has been fixed.
 ### Lighthouse Testing
 
 Lighthouse, a popular open-source tool for auditing web performance, accessibility, SEO, and best practices, was used to evaluate **The Steakery**.
