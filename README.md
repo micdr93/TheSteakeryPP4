@@ -133,17 +133,57 @@ Please see the following link for the [project board](https://github.com/users/m
         * Special requests (optional) can be linked to each booking.
     * Admins can manage bookings through the Django admin panel, and users can create, edit, or delete their bookings directly from the platform.
 
-### Database Scheme
+## Database Scheme
 
 Entity Relationship Diagram (ERD)
 
 ![DataScheme](media/readme_images/erd_diagram.png)
 
-* The **SpecialRequest** entity represents any special requests that can be associated with table reservations (e.g., vegetarian, wheelchair access). It contains the `id` as the primary key and the `name` field to describe the request.
-* The **Table** entity represents individual tables in the restaurant, with fields including `id` as the primary key, `table_number` to uniquely identify each table, and `max_capacity` to specify how many guests the table can accommodate.
-* The **Booking** entity represents a reservation made by a user for a specific table. It includes `id` as the primary key, `table_id` as a foreign key referencing the Table entity, `user_id` as a foreign key referencing the User entity, `date` for the reservation date, `time` for the reservation time, and `num_guests` for the number of guests in the booking. Special requests can also be linked through a many-to-many relationship.
+## Entity Relationship Diagram (ERD) Overview
 
-This schema efficiently manages users, tables, and reservations. Users can make reservations for specific tables, and each booking includes relevant details such as the date, time, number of guests, and any special requests.
+This document outlines the database schema for our restaurant reservation system, detailing the relationships between users, tables, bookings, and special requests.
+
+### Core Entities
+
+* The **User** entity represents people who can make table reservations in the system. It contains:
+  * `id` (Primary Key) - Unique identifier
+  * `username` - User's identifier
+
+* The **Table** entity represents individual tables in the restaurant:
+  * `id` (Primary Key) - Unique identifier
+  * `table_number` (Unique Key) - Unique table identifier
+  * `max_capacity` - Maximum number of guests per table
+
+* The **SpecialRequest** entity stores special requirements for bookings:
+  * `id` (Primary Key) - Unique identifier
+  * `name` - Description of the special request
+
+* The **Booking** entity manages reservations with the following fields:
+  * `id` (Primary Key) - Unique identifier
+  * `date` - Reservation date
+  * `start_time` - Beginning of reservation
+  * `end_time` - End of reservation
+  * `num_guests` - Party size
+  * `additional_requests` - Custom notes field
+  * `created_at` - Timestamp of booking creation
+  * `user_id` (Foreign Key) - Reference to User
+  * `table_id` (Foreign Key, Nullable) - Reference to Table
+
+### Relationships
+
+* User → Booking: One-to-Many ("makes")
+* Table → Booking: One-to-Many ("has")
+* Booking ↔ SpecialRequest: Many-to-Many ("requested_in")
+
+### System Functionality
+
+This schema enables efficient management of restaurant reservations. Users can make table bookings while specifying:
+* Date and time period
+* Number of guests
+* Special requests
+* Additional notes
+
+The system maintains proper relationships between all entities while allowing for flexible booking management through timestamps and optional table assignments.
 
 ## Security Features 
 
@@ -172,28 +212,63 @@ This schema efficiently manages users, tables, and reservations. Users can make 
 * If an overlapping booking is found, an error message is displayed, preventing users from booking the same table at the same time.
 
 ## Existing Features
-* Home Page
-![Steakery Homepage](media/readme_images/home.png)
-* About
-![Steakery About](media/readme_images/about.png)
-* Menu
-![Steakery Menu](media/readme_images/menu.png)
-* Contact
-![Steakery Contact](media/readme_images/contact.png)
-* Create Booking
-![Steakery Create Booking](media/readme_images/create_booking.png)
+
+![Steakery Homepage](media/readme_images/home_desktop.png)
+* Home Page on Desktop
+![Steakery Homepage](media/readme_images/home_mobile.png)
+* Home Page on Mobile
+![Steakery About](media/readme_images/about_desktop.png)
+* About Page on Desktop
+![Steakery About](media/readme_images/about_mobile.png)
+* About Page on Mobile
+![Steakery Menu](media/readme_images/menu_desktop.png)
+* Menu page on Desktop
+![Steakery Menu](media/readme_images/menu_mobile.png)
+* Menu page on Mobile
+![Steakery Contact](media/readme_images/contact_desktop.png)
+* Contact page on Desktop
+![Steakery Contact](media/readme_images/contact_mobile.png)
+* Contact page on Mobile
+![Steakery Create Booking](media/readme_images/create_booking_desktop.png)
+* Create Booking on Desktop
+![Steakery Create Booking](media/readme_images/create_booking_mobile.png)
+* Create Booking on Mobile
+![Steakery Delete Booking](media/readme_images/delete_booking_desktop.png)
 * Delete Booking
-![Steakery Delete Booking](media/readme_images/delete_booking.png)
+![Steakery Delete Booking](media/readme_images/delete_booking_mobile.png)
+* Delete Booking
+![Steakery Edit Booking](media/readme_images/edit_booking_desktop.png)
 * Edit Booking
-![Steakery Edit Booking](media/readme_images/edit_booking.png)
-* Existing Bookings
-![Steakery Existing Booking](media/readme_images/existing_bookings.png)
-* Table Selection
-![Steakery Table Selection](media/readme_images/table_Selection.png)
-* Booking Login
-![Steakery Booking Login](media/readme_images/booking_login.png)
-* Booking Login 2
-![Steakery Booking Login 2](media/readme_images/booking_login_2.png)
+![Steakery Edit Booking](media/readme_images/edit_booking_mobile.png)
+* Edit Booking
+![Steakery Existing Booking](media/readme_images/bookings_list_desktop.png)
+* Existing Bookings on Desktop
+![Steakery Existing Booking](media/readme_images/bookings_list_mobile.png)
+* Existing Bookings on Mobile
+![Steakery Existing Booking](media/readme_images/bookings_list_mobile_2.png)
+* Existing Bookings on Mobile
+![Steakery Booking Error](media/readme_images/booking_error_message_desktop.png)
+* Booking Eerror on Desktop
+![Steakery Booking Error](media/readme_images/booking_error_message_mobile.png)
+* Booking Error on Mobile
+![Steakery Table Selection](media/readme_images/table_selection_desktop.png)
+* Table Selection on Desktop
+![Steakery Table Selection](media/readme_images/table_selection_mobile.png)
+* Table Selection on Mobile
+![Steakery Booking Login](media/readme_images/bookings_desktop.png)
+* Booking Login on Desktop
+![Steakery Booking Login](media/readme_images/bookings_mobile.png)
+* Booking Login on Desktop
+![Steakery Signup](media/readme_images/signup_desktop.png)
+* Signup Page on Desktop
+![Steakery Signup](media/readme_images/signup_mobile.png)
+* Signup Page on Mobile
+![Steakery Special Requests](media/readme_images/special_requests_desktop.png)
+* Special Requests on Desktop
+![Steakery Special Requests](media/readme_images/special_requests_mobile.png)
+* Special Requests on Mobile
+![Steakery Mobile Toggler](media/readme_images/toggler.png)
+* Mobile Toggler
 
 ### Admin Features
 
@@ -224,12 +299,13 @@ This schema efficiently manages users, tables, and reservations. Users can make 
 ### Programs Used
 
 * [GitHub](https://github.com/) - Used for storing the project code online and version control.
+* [VS Code](https://code.visualstudio.com/) - Local IDE used to write and develop the code.
 * [GitPod](https://www.gitpod.io/) - Cloud-based IDE used to write and develop the code.
 * [Heroku](https://www.heroku.com/) - Used to deploy the site as a cloud-based platform.
 * [Google Fonts](https://fonts.google.com/) - Used to import the main fonts for the website.
 * [Balsamiq](https://balsamiq.com/wireframes/) - Utilized to create wireframes during the planning phase.
 * [Lucid Chart](https://lucidchart.com/) - Used to create the Entity Relationship Diagram (ERD).
-* [Am I Responsive](https://ui.dev/amiresponsive) - Tool to display how the website appears on different device sizes.
+* 
 * [Git](https://git-scm.com/) - Version control system used to track changes in the codebase.
 * [JSHint](https://jshint.com/) - Used for JavaScript code validation.
 * [W3C Markup Validation Service](https://validator.w3.org/) - Used for validating HTML for syntax correctness.
