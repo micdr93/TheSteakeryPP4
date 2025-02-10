@@ -538,7 +538,7 @@ All critical functions were tested, and issues were addressed during the develop
 
 ### Docs
 
-* [Stack Overflow](https://stackoverflow.com/)
+* [Stack Overflow](https://stackoverflow.com/) 
 * [Code Institute](https://learn.codeinstitute.net/dashboard)
 * [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 * [Django docs](https://docs.djangoproject.com/en/4.2/releases/3.2/)
