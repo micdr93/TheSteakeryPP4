@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @font-face {
     font-family: 'Bebas Neue';
 :root {
@@ -11,14 +12,13 @@ body {
     background-color: #ffffff;
     color: var(--primary-color);
 }
-    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+
 a {
     color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
